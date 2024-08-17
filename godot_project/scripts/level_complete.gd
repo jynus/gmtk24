@@ -1,5 +1,9 @@
 extends Control
 
+@onready var expected_image: TextureRect = %expectedImage
+@onready var submitted_image: TextureRect = %submittedImage
+@onready var grade: TextureProgressBar = %grade
+
 @onready var next_level_button: Button = %nextLevelButton
 @onready var main_menu_button: Button = %mainMenuButton
 @onready var replay_button: Button = %replayButton
@@ -12,12 +16,16 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	pass
 
-func level_complete():
-	show()
+func level_complete(_original, expected, submitted, mark):
+	expected_image.texture = expected
+	submitted_image.texture = submitted
+	grade.value = mark
+
 	BackgroundMusic.fade_into("level_complete")
 	if Input.get_connected_joypads().size() > 0:
 		next_level_button.grab_focus()
 	get_tree().create_timer(1).timeout.connect(enable_next_level_button)
+	show()
 
 func enable_next_level_button():
 	next_level_button.disabled = false

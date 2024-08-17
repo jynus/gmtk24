@@ -1,0 +1,186 @@
+[gd_scene load_steps=11 format=3 uid="uid://dbj0f5wflos1b"]
+
+[ext_resource type="Script" path="res://scripts/game_sculpture.gd" id="1_aiq8c"]
+[ext_resource type="ArrayMesh" uid="uid://xvy82mxmyb1d" path="res://assets/3d/sculptures/Statue_de_la_libert__Model_1.obj" id="4_wrcxi"]
+[ext_resource type="PackedScene" uid="uid://oq5258by1a1k" path="res://scene_objects/menu_button.tscn" id="5_gu0ne"]
+[ext_resource type="PackedScene" uid="uid://buqvr00anmyup" path="res://scene_objects/level_complete.tscn" id="6_266ww"]
+[ext_resource type="PackedScene" uid="uid://c4724smqdfkk6" path="res://scene_objects/pause_menu.tscn" id="7_u6yug"]
+
+[sub_resource type="Environment" id="Environment_t2g0o"]
+ambient_light_color = Color(0.332881, 0.332881, 0.332881, 1)
+ambient_light_energy = 1.78
+
+[sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_ag501"]
+frustum_far = 400.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_hhqyx"]
+size = Vector3(1.9, 1.9, 1.9)
+
+[sub_resource type="MeshLibrary" id="MeshLibrary_cjihk"]
+item/0/name = ""
+item/0/mesh = SubResource("BoxMesh_hhqyx")
+item/0/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/0/shapes = []
+item/0/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/0/navigation_layers = 1
+
+[sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_sft7l"]
+frustum_far = 400.0
+
+[node name="level" type="Node3D"]
+script = ExtResource("1_aiq8c")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+custom_minimum_size = Vector2(1920, 1080)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 30
+
+[node name="UpButton" type="Button" parent="CanvasLayer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+text = "^"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+custom_minimum_size = Vector2(1920, 759)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="LeftButton" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 300)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+text = "<"
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(750, 750)
+layout_mode = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(750, 759)
+size_2d_override = Vector2i(650, 700)
+render_target_update_mode = 4
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer/SubViewport"]
+transform = Transform3D(-0.397688, -0.727094, 0.559624, 0.691308, 0.163581, 0.7038, -0.603272, 0.666765, 0.437592, 77.5466, 48.4944, 54.8383)
+light_color = Color(0.314316, 0.314316, 0.314316, 1)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer/SubViewport"]
+environment = SubResource("Environment_t2g0o")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer/SubViewport"]
+transform = Transform3D(0.990584, 0, 0.136909, 0, 1, 0, -0.136909, 0, 0.990584, 2.5358, 0, 0)
+layers = 2
+mesh = ExtResource("4_wrcxi")
+skeleton = NodePath("../../..")
+
+[node name="originalMarker" type="Marker3D" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer/SubViewport"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="originalCamera" type="Camera3D" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer/SubViewport/originalMarker"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.962422, 0.271558, 0, -0.271558, 0.962422, 1.9496, 53.9576, 97.5277)
+cull_mask = 2
+attributes = SubResource("CameraAttributesPhysical_ag501")
+h_offset = 1.985
+v_offset = 2.95
+current = true
+
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(750, 750)
+layout_mode = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer2"]
+handle_input_locally = false
+size = Vector2i(750, 759)
+size_2d_override = Vector2i(650, 700)
+render_target_update_mode = 4
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer2/SubViewport"]
+transform = Transform3D(-0.397688, -0.727094, 0.559624, 0.691308, 0.163581, 0.7038, -0.603272, 0.666765, 0.437592, 77.5466, 48.4944, 54.8383)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer2/SubViewport"]
+environment = SubResource("Environment_t2g0o")
+
+[node name="GridMap" type="GridMap" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer2/SubViewport"]
+mesh_library = SubResource("MeshLibrary_cjihk")
+data = {
+"cells": PackedInt32Array(717, 39, 0, 255, 65535, 0, 256, 65535, 0, 257, 0, 0, 258, 0, 0, 258, 1, 0, 259, 1, 0, 259, 0, 0, 259, 65535, 0, 259, 65534, 0, 258, 65534, 0, 257, 65534, 0, 257, 65535, 0, 258, 65535, 0, 257, 65533, 0, 257, 65532, 0, 257, 65531, 0, 256, 65531, 0, 255, 65531, 0, 254, 65531, 0, 253, 65531, 0, 253, 65532, 0, 253, 65533, 0, 253, 65534, 0, 253, 65535, 0, 253, 0, 0, 253, 1, 0, 254, 1, 0, 255, 1, 0, 256, 1, 0, 257, 1, 0, 258, 65533, 0, 258, 65532, 0, 256, 65532, 0, 256, 65533, 0, 255, 65533, 0, 255, 65534, 0, 256, 65534, 0, 256, 0, 0, 255, 0, 0, 254, 0, 0, 254, 65535, 0, 254, 65532, 0, 254, 65533, 0, 254, 65534, 0, 259, 65532, 0, 259, 65533, 0, 259, 65531, 0, 258, 65531, 0, 255, 65532, 0)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="workingMarker" type="Marker3D" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer2/SubViewport"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 512, 0, 0)
+
+[node name="workingCamera" type="Camera3D" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer2/SubViewport/workingMarker"]
+unique_name_in_owner = true
+transform = Transform3D(0.999992, -0.003897, -0.00109958, 0.00404915, 0.962414, 0.271556, 0, -0.271558, 0.962422, 2.34045, 53.9576, 97.5277)
+attributes = SubResource("CameraAttributesPhysical_sft7l")
+h_offset = 0.07
+v_offset = 4.06
+current = true
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="RightButton" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 300)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+text = ">"
+
+[node name="DownButton" type="Button" parent="CanvasLayer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+text = "v"
+
+[node name="submitButton" parent="CanvasLayer/VBoxContainer" instance=ExtResource("5_gu0ne")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 75)
+layout_mode = 2
+size_flags_vertical = 6
+text = "Submit"
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="CanvasLayer"]
+unique_name_in_owner = true
+initial_position = 1
+size = Vector2i(372, 132)
+ok_button_text = "Submit"
+dialog_text = "Are you sure you want to submit the drawing?
+
+Some pixels still have the default color!"
+
+[node name="LevelCompleteScreen" parent="CanvasLayer" instance=ExtResource("6_266ww")]
+unique_name_in_owner = true
+visible = false
+
+[node name="pauseMenu" parent="CanvasLayer" instance=ExtResource("7_u6yug")]
+visible = false
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/UpButton" to="." method="_on_up_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/LeftButton" to="." method="_on_left_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/RightButton" to="." method="_on_right_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/DownButton" to="." method="_on_down_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/submitButton" to="." method="_on_submit_button_pressed"]
+[connection signal="confirmed" from="CanvasLayer/ConfirmationDialog" to="." method="level_complete"]

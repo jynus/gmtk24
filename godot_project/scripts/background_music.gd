@@ -7,12 +7,12 @@ var fadeout_tween : Tween
 var fadein_tween : Tween
 
 var playlist : Dictionary = {
-	"menu": preload("res://assets/music/Bit Bit Loop.mp3"),
-	"pause": preload("res://assets/music/Winter Reflections.mp3"),
-	"game": preload("res://assets/music/Amazing Plan.mp3"),
-	"level_complete": preload("res://assets/music/Bit Bit Loop.mp3"),
-	"lost": preload("res://assets/music/Bit Bit Loop.mp3"),
-	"win": preload("res://assets/music/Bit Bit Loop.mp3"),
+	"menu": preload("res://assets/music/ES_Replica (Instrumental Version) - I'MIN.ogg"),
+	"pause": preload("res://assets/music/ES_Love and Rewind (Instrumental Version) - I'MIN.ogg"),
+	"game": preload("res://assets/music/ES_Simple Minds (Instrumental Version) - I'MIN.ogg"),
+	"level_complete": preload("res://assets/music/ES_Rise and Rise - Falcon Dives.ogg"),
+	"lost": preload("res://assets/music/ES_Love and Rewind (Instrumental Version) - I'MIN.ogg"),
+	"win": preload("res://assets/music/ES_Rise and Rise - Falcon Dives.ogg"),
 }
 var _current_song : String
 @export var current_song : String :

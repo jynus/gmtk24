@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://scripts/level_complete.gd" id="1_r8gc7"]
 [ext_resource type="LabelSettings" uid="uid://tje0ygjwilaf" path="res://resources/small_title_label_settings.tres" id="2_dmp87"]
 [ext_resource type="PackedScene" uid="uid://oq5258by1a1k" path="res://scene_objects/menu_button.tscn" id="3_1njab"]
-[ext_resource type="Texture2D" uid="uid://degti07rp3iqy" path="res://assets/sprites/drawings/Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg" id="3_k063x"]
 [ext_resource type="Texture2D" uid="uid://ciddnlhcacvjl" path="res://assets/sprites/stars_unfilled.webp" id="3_ulwen"]
 [ext_resource type="Texture2D" uid="uid://d3ubas71s5u06" path="res://assets/sprites/stars_filled.webp" id="4_eejmd"]
+[ext_resource type="Texture2D" uid="uid://cl5h54ouarkps" path="res://assets/sprites/drawings/Mona Lisa, by Leonardo da Vinci_resized_indexed.webp" id="4_r5s5y"]
 [ext_resource type="Texture2D" uid="uid://tq62h3qdi8o6" path="res://assets/sprites/drawings/Mona Lisa, by Leonardo da Vinci_resized.webp" id="4_r5vnf"]
 [ext_resource type="PackedScene" uid="uid://dg8iotoxg8rsy" path="res://scene_objects/blip.tscn" id="5_wrsi5"]
 
@@ -61,17 +61,8 @@ label_settings = ExtResource("2_dmp87")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CenterContainer" type="TextureRect" parent="background/VBoxContainer/pauseMenu"]
-texture_filter = 2
-custom_minimum_size = Vector2(960, 550)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("3_k063x")
-expand_mode = 2
-stretch_mode = 5
-
-[node name="CenterContainer2" type="TextureRect" parent="background/VBoxContainer/pauseMenu"]
+[node name="expectedImage" type="TextureRect" parent="background/VBoxContainer/pauseMenu"]
+unique_name_in_owner = true
 texture_filter = 1
 custom_minimum_size = Vector2(960, 550)
 layout_mode = 2
@@ -81,12 +72,24 @@ texture = ExtResource("4_r5vnf")
 expand_mode = 2
 stretch_mode = 5
 
-[node name="HSlider" type="TextureProgressBar" parent="background/VBoxContainer"]
+[node name="submittedImage" type="TextureRect" parent="background/VBoxContainer/pauseMenu"]
+unique_name_in_owner = true
+texture_filter = 1
+custom_minimum_size = Vector2(960, 550)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_r5s5y")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="grade" type="TextureProgressBar" parent="background/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 max_value = 10.0
-value = 7.0
+value = 1.0
 texture_under = ExtResource("3_ulwen")
 texture_progress = ExtResource("4_eejmd")
 tint_over = Color(1, 0.27451, 1, 1)

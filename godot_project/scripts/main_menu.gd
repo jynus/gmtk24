@@ -16,7 +16,8 @@ func _ready():
 		exit_button.hide()
 	if Input.get_connected_joypads().size() > 0:
 		play_button.grab_focus()
-	BackgroundMusic.fade_in("menu", 0.0)
+	if BackgroundMusic.current_song != "menu":
+		BackgroundMusic.fade_in("menu", 0.0)
 
 func _process(_delta):
 	pass

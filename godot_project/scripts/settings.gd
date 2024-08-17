@@ -21,13 +21,14 @@ func _init():
 	_configFile = ConfigFile.new()
 	var err = _configFile.load(SETTINGS_FILE_PATH)
 	if err != OK: 
-		print("Error while loading config file: " + str(err))
+		print_debug("Error while loading config file: " + str(err))
+
 
 func _ready():
 	"""Used when first loaded on a scene"""
 	if Input.get_connected_joypads().size() > 0:
 		done_button.grab_focus()
-	var is_fullscreen = DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN
+	var is_fullscreen = DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN or DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN
 	# Set ui defaults
 	full_screen_checkbox.set_pressed_no_signal(is_fullscreen)
 	full_screen_checkbox.text = "on" if is_fullscreen else "off"
@@ -44,12 +45,14 @@ func load_settings():
 	"""Load settings from config file and apply them"""
 	var err = _configFile.load(SETTINGS_FILE_PATH)
 	if err != OK: 
-		print("Error while loading config file: " + str(err))
+		print_debug("Error while loading config file: " + str(err))
 	# apply settings
 	var window_mode = _configFile.get_value("settings", "window_mode", DisplayServer.WINDOW_MODE_WINDOWED)
-	set_window_mode(window_mode)
+	if DisplayServer.window_get_mode() != window_mode:
+		set_window_mode(window_mode)
 	var vsync_mode = _configFile.get_value("settings", "vsync_mode", DisplayServer.VSYNC_DISABLED)
-	set_window_mode(vsync_mode)
+	if DisplayServer.window_get_vsync_mode() != vsync_mode:
+		set_vsync_mode(vsync_mode)
 	var music_volume_config = _configFile.get_value("settings", "music_volume", default_volume)
 	set_volume("music", music_volume_config)
 	var sfx_volume_config = _configFile.get_value("settings", "sfx_volume", default_volume)
