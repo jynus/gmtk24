@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://tje0ygjwilaf"]
+
+[ext_resource type="FontFile" uid="uid://corsxej8p2eq6" path="res://assets/fonts/Concrete.ttf" id="1_gw15k"]
+
+[resource]
+font = ExtResource("1_gw15k")
+font_size = 125
+shadow_size = 0

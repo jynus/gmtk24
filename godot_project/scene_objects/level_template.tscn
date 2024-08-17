@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=3 uid="uid://c6quisvt3ufal"]
+
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_m8pct"]
+[ext_resource type="PackedScene" uid="uid://oq5258by1a1k" path="res://scene_objects/menu_button.tscn" id="2_ob2lu"]
+[ext_resource type="PackedScene" uid="uid://buqvr00anmyup" path="res://scene_objects/level_complete.tscn" id="3_ey55l"]
+[ext_resource type="Texture2D" uid="uid://degti07rp3iqy" path="res://assets/sprites/drawings/Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg" id="4_c2a7g"]
+[ext_resource type="PackedScene" uid="uid://c4724smqdfkk6" path="res://scene_objects/pause_menu.tscn" id="4_wnsgd"]
+
+[node name="level" type="Node2D"]
+script = ExtResource("1_m8pct")
+grid_size = Vector2i(10, 15)
+
+[node name="MonaLisa,ByLeonardoDaVinci,FromC2rmfRetouched" type="Sprite2D" parent="."]
+position = Vector2(112, 196)
+scale = Vector2(0.522941, 0.522941)
+texture = ExtResource("4_c2a7g")
+centered = false
+
+[node name="ColorPicker" type="ColorPicker" parent="."]
+unique_name_in_owner = true
+offset_left = 1400.0
+offset_top = 397.0
+offset_right = 1682.0
+offset_bottom = 669.0
+scale = Vector2(1.5, 1.5)
+color = Color(0, 0, 0, 1)
+picker_shape = 1
+sampler_visible = false
+color_modes_visible = false
+sliders_visible = false
+hex_visible = false
+presets_visible = false
+metadata/_edit_use_anchors_ = true
+
+[node name="canvas" type="GridContainer" parent="."]
+unique_name_in_owner = true
+offset_left = 824.0
+offset_top = 196.0
+offset_right = 1360.0
+offset_bottom = 1002.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+columns = 10
+metadata/_edit_use_anchors_ = true
+
+[node name="submitButton" parent="." instance=ExtResource("2_ob2lu")]
+unique_name_in_owner = true
+offset_left = 1424.0
+offset_top = 872.0
+offset_right = 1748.0
+offset_bottom = 945.0
+text = "Submit"
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
+unique_name_in_owner = true
+initial_position = 1
+size = Vector2i(372, 132)
+ok_button_text = "Submit"
+dialog_text = "Are you sure you want to submit the drawing?
+
+Some pixels still have the default color!"
+
+[node name="LevelCompleteScreen" parent="." instance=ExtResource("3_ey55l")]
+unique_name_in_owner = true
+visible = false
+
+[node name="pauseMenu" parent="." instance=ExtResource("4_wnsgd")]
+visible = false
+
+[connection signal="color_changed" from="ColorPicker" to="." method="_on_color_picker_color_changed"]
+[connection signal="pressed" from="submitButton" to="." method="_on_submit_button_pressed"]
+[connection signal="confirmed" from="ConfirmationDialog" to="." method="level_complete"]

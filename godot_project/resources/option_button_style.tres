@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bb0pnhtq2j0hx"]
+
+[ext_resource type="FontFile" uid="uid://c1gg0yw02pyb5" path="res://assets/fonts/dogicapixel.ttf" id="1_gitkc"]
+
+[resource]
+default_font = ExtResource("1_gitkc")
+default_font_size = 16

@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=3 uid="uid://k635iu86fy37"]
+
+[ext_resource type="Texture2D" uid="uid://ceiwbjerdmggr" path="res://assets/sprites/81psmz4i.bmp" id="1_gs3nu"]
+
+[sub_resource type="Animation" id="Animation_hjc8r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 1920, 1080)]
+}
+
+[sub_resource type="Animation" id="Animation_ecm3m"]
+resource_name = "animate_menu"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 1920, 1080), Rect2(600, 600, 1920, 1080)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_as2xe"]
+_data = {
+"RESET": SubResource("Animation_hjc8r"),
+"animate_menu": SubResource("Animation_ecm3m")
+}
+
+[node name="backgroudMenu" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.490196, 0.176471, 0.819608, 1)
+
+[node name="animatedSprite" type="Sprite2D" parent="."]
+self_modulate = Color(0, 1, 1, 0.501961)
+texture_repeat = 2
+texture = ExtResource("1_gs3nu")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 1920, 1080)
+
+[node name="backgroundAnimation" type="AnimationPlayer" parent="."]
+root_node = NodePath("../animatedSprite")
+libraries = {
+"": SubResource("AnimationLibrary_as2xe")
+}
+autoplay = "animate_menu"

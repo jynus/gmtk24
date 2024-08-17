@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://csrb5ilr7y6dy"]
+
+[ext_resource type="FontFile" uid="uid://corsxej8p2eq6" path="res://assets/fonts/Concrete.ttf" id="1_5lnvs"]
+
+[resource]
+font = ExtResource("1_5lnvs")
+font_size = 150
+shadow_size = 0

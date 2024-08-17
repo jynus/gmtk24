@@ -1,0 +1,173 @@
+[gd_scene load_steps=16 format=3 uid="uid://cp76wk0hhmwag"]
+
+[ext_resource type="LabelSettings" uid="uid://csrb5ilr7y6dy" path="res://resources/main_menu_title_label_setting.tres" id="1_c4tx6"]
+[ext_resource type="Script" path="res://scripts/credits.gd" id="1_o3suw"]
+[ext_resource type="FontFile" uid="uid://btvwq11pvkgw7" path="res://assets/fonts/minimal5x7.ttf" id="2_5ad5r"]
+[ext_resource type="PackedScene" uid="uid://k635iu86fy37" path="res://scene_objects/menu_background.tscn" id="2_pa7y0"]
+[ext_resource type="StyleBox" uid="uid://67m76h2nyeyy" path="res://resources/main_menu_button_style.tres" id="4_3veic"]
+[ext_resource type="FontFile" uid="uid://com4cjqc1ln44" path="res://assets/fonts/Montserrat-Medium.otf" id="4_q3at0"]
+[ext_resource type="StyleBox" uid="uid://cscwrtv4vl12l" path="res://resources/main_menu_button_hover_style.tres" id="5_7nd3c"]
+[ext_resource type="FontFile" uid="uid://smk86k8i0gcp" path="res://assets/fonts/Montserrat-Bold.otf" id="5_u2hon"]
+[ext_resource type="StyleBox" uid="uid://dtfd366g1j00" path="res://resources/main_menu_button_pressed_style.tres" id="6_3f04u"]
+[ext_resource type="Texture2D" uid="uid://sibo03pa8mmh" path="res://assets/sprites/x_icon.webp" id="10_65suw"]
+[ext_resource type="Texture2D" uid="uid://s6q5vi3fy8bn" path="res://assets/sprites/itch_icon.webp" id="11_i1l18"]
+[ext_resource type="Texture2D" uid="uid://chsacipy1xum" path="res://assets/sprites/web_icon.webp" id="12_uoica"]
+[ext_resource type="PackedScene" uid="uid://dg8iotoxg8rsy" path="res://scene_objects/blip.tscn" id="13_4wf1y"]
+[ext_resource type="PackedScene" uid="uid://oq5258by1a1k" path="res://scene_objects/menu_button.tscn" id="13_25eo3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hugtt"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.12549, 0.384314, 0.486275, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[node name="credits" type="Node2D"]
+script = ExtResource("1_o3suw")
+
+[node name="background" parent="." instance=ExtResource("2_pa7y0")]
+
+[node name="menuContainer" type="VBoxContainer" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="topMargin" type="MarginContainer" parent="menuContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="title" type="Label" parent="menuContainer"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+text = "Credits"
+label_settings = ExtResource("1_c4tx6")
+horizontal_alignment = 1
+
+[node name="topMargin2" type="MarginContainer" parent="menuContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="optionsContainer" type="HBoxContainer" parent="menuContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+alignment = 1
+
+[node name="leftMargin" type="MarginContainer" parent="menuContainer/optionsContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="creditsContainer" type="VBoxContainer" parent="menuContainer/optionsContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="creditsText" type="RichTextLabel" parent="menuContainer/optionsContainer/creditsContainer"]
+custom_minimum_size = Vector2(1100, 600)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_constants/line_separation = 25
+theme_override_fonts/normal_font = ExtResource("4_q3at0")
+theme_override_fonts/bold_font = ExtResource("5_u2hon")
+theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/bold_font_size = 60
+bbcode_enabled = true
+text = "[center][b]Design & programming[/b]:
+
+Jaime Crespo \"jynus\"
+
+ * Made with Godot 4 in 4 days for the Game Jam *[/center]"
+
+[node name="socialButtonContainer" type="VBoxContainer" parent="menuContainer/optionsContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(200, 500)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 50
+
+[node name="twitterButton" type="Button" parent="menuContainer/optionsContainer/socialButtonContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_next = NodePath("../PlayButton")
+focus_previous = NodePath("../CreditsButton")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_5ad5r")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/focus = SubResource("StyleBoxFlat_hugtt")
+theme_override_styles/disabled = ExtResource("4_3veic")
+theme_override_styles/hover = ExtResource("5_7nd3c")
+theme_override_styles/pressed = ExtResource("6_3f04u")
+theme_override_styles/normal = ExtResource("4_3veic")
+icon = ExtResource("10_65suw")
+icon_alignment = 1
+expand_icon = true
+
+[node name="itchioButton" type="Button" parent="menuContainer/optionsContainer/socialButtonContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_next = NodePath("../PlayButton")
+focus_previous = NodePath("../CreditsButton")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_5ad5r")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/focus = SubResource("StyleBoxFlat_hugtt")
+theme_override_styles/disabled = ExtResource("4_3veic")
+theme_override_styles/hover = ExtResource("5_7nd3c")
+theme_override_styles/pressed = ExtResource("6_3f04u")
+theme_override_styles/normal = ExtResource("4_3veic")
+icon = ExtResource("11_i1l18")
+icon_alignment = 1
+expand_icon = true
+
+[node name="webButton" type="Button" parent="menuContainer/optionsContainer/socialButtonContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_next = NodePath("../PlayButton")
+focus_previous = NodePath("../CreditsButton")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_5ad5r")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/focus = SubResource("StyleBoxFlat_hugtt")
+theme_override_styles/disabled = ExtResource("4_3veic")
+theme_override_styles/hover = ExtResource("5_7nd3c")
+theme_override_styles/pressed = ExtResource("6_3f04u")
+theme_override_styles/normal = ExtResource("4_3veic")
+icon = ExtResource("12_uoica")
+icon_alignment = 1
+expand_icon = true
+
+[node name="rightMargin" type="MarginContainer" parent="menuContainer/optionsContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="doneButton" parent="menuContainer" instance=ExtResource("13_25eo3")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(700, 75)
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+
+[node name="bottomMargin" type="MarginContainer" parent="menuContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="blip" parent="." instance=ExtResource("13_4wf1y")]
+
+[connection signal="pressed" from="menuContainer/optionsContainer/socialButtonContainer/twitterButton" to="." method="_on_twitter_button_pressed"]
+[connection signal="pressed" from="menuContainer/optionsContainer/socialButtonContainer/itchioButton" to="." method="_on_itchio_button_pressed"]
+[connection signal="pressed" from="menuContainer/optionsContainer/socialButtonContainer/webButton" to="." method="_on_web_button_pressed"]
+[connection signal="pressed" from="menuContainer/doneButton" to="." method="_on_done_button_pressed"]
