@@ -45,7 +45,7 @@ func load_next_level():
 
 func return_to_main_menu():
 	Fx.click.play()
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/level_select.tscn")
 
 func reload_current_level():
 	Fx.click.play()

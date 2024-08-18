@@ -112,7 +112,7 @@ custom_minimum_size = Vector2(400, 75)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 disabled = true
-text = "Back to main menu"
+text = "Back to level selection"
 
 [node name="replayButton" parent="background/VBoxContainer/HBoxContainer" instance=ExtResource("3_1njab")]
 unique_name_in_owner = true

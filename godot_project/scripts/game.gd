@@ -10,7 +10,7 @@ var pixel = preload("res://scene_objects/pixel.tscn")
 @export var subject: String
 @export var grid_size : Vector2i = Vector2i(1, 1)
 @export var pixel_separation : int = 3
-@export var default_grid_color : Color = Color("#6a6a6a")
+@export var default_grid_color : Color = Color("#fefefe")
 @export var original_drawing : Texture2D
 @export var expected_result : Texture2D
 
@@ -166,19 +166,19 @@ func image_difference(img_expected: Image, img_submitted: Image) -> float:
 func grade_image(img_expected: Image, img_submitted: Image):
 	var difference: float = image_difference(img_expected, img_submitted)
 
-	if difference >= 100000:
+	if difference >= 110000:
 		return 0
-	elif difference >= 80000:
+	elif difference >= 95000:
 		return 1
-	elif difference >= 60000:
+	elif difference >= 80000:
 		return 2
-	elif difference >= 35000:
+	elif difference >= 50000:
 		return 3
-	elif difference >= 25000:
+	elif difference >= 30000:
 		return 5
-	elif difference >= 15000:
+	elif difference >= 20000:
 		return 6
-	elif difference >= 10000:
+	elif difference >= 15000:
 		return 7
 	elif difference >= 5000:
 		return 8
