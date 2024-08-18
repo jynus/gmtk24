@@ -74,13 +74,15 @@ func _process(_delta: float) -> void:
 			paint(_current_pixel)
 	if Input.is_action_just_released("paint"):
 		_painting = false
+		_erasing = false
 	if Input.is_action_just_pressed("erase"):
 		_erasing = true
 		_painting = false
 		if _current_pixel != null:
 			erase(_current_pixel)
-	if Input.is_action_just_released("paint"):
+	if Input.is_action_just_released("erase"):
 		_erasing = false
+		_painting = false
 	if Input.is_action_just_pressed("clone") and _current_pixel != null:
 		color_picker.color = _current_pixel.color
 		_current_color = _current_pixel.color
