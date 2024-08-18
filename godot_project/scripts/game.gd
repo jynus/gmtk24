@@ -19,6 +19,7 @@ var _current_pixel : Pixel
 var _painting : bool = false
 var _erasing : bool = false
 var _min_size : int = 50
+var _grid : Array[Array] = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -30,19 +31,23 @@ func _ready():
 	canvas.add_theme_constant_override("v_separation", pixel_separation)
 	canvas.add_theme_constant_override("h_separation", pixel_separation)
 	_min_size = canvas.custom_minimum_size.x / max(grid_size.x, grid_size.y) - pixel_separation
+	var line : Array[Pixel]
 	for i in range(0, grid_size.y):
+		line = []
 		for j in range(0, grid_size.x):
-			instantiate_pixel(j, i)
+			line.append(instantiate_pixel(j, i))
+		_grid.append(line)
 	color_picker.color = _current_color
 	original.texture = original_drawing
 
 func instantiate_pixel(x: int, y:int):
-	var button = pixel.instantiate()
+	var button : Pixel = pixel.instantiate()
 	button.set_properties(Vector2i(x, y), _min_size, default_grid_color)
 	button.name = "Pixel" + str(x) + "-" + str(y)
 	canvas.add_child(button)
 	button.entered.connect(hover_on)
 	button.exited.connect(hover_off)
+	return button
 
 func hover_on(button):
 	_current_pixel = button
@@ -66,8 +71,31 @@ func erase(button):
 func _on_color_picker_color_changed(color: Color) -> void:
 	_current_color = color
 
+func recursive_fill(p: Pixel, color_to_remove: Color, color_to_set: Color):
+	print_debug("attempting to fill: ", p.location)
+	if p.color != color_to_remove:
+		return
+	p.color = _current_color
+	for next_step : Vector2i in [Vector2i(1, 0), Vector2i(0, 1), Vector2i(-1, 0), Vector2i(0, -1)]:
+		var coords : Vector2i = p.location + next_step
+		print_debug("is this pixel ok? ", coords)
+		if coords.x < 0 or coords.y < 0 or coords.x >= grid_size.x or coords.y >= grid_size.y:
+			return
+		recursive_fill(_grid[coords.y][coords.x], color_to_remove, color_to_set)
+
+func fill_from(p: Pixel):
+	print_debug("filling from ", p.location)
+	# Do nothing is the color is the same as the current one
+	if p.color == _current_color:
+		return
+	recursive_fill(p, p.color, _current_color)
+
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("paint"):
+	if Input.is_action_just_pressed("fill") and _current_pixel != null:
+		fill_from(_current_pixel)
+		_painting = false
+		_erasing = false
+	elif Input.is_action_just_pressed("paint"):
 		_painting = true
 		_erasing = false
 		if _current_pixel != null:
@@ -88,7 +116,6 @@ func _process(_delta: float) -> void:
 		_current_color = _current_pixel.color
 		_painting = false
 		_erasing = false
-
 
 func _on_submit_button_pressed() -> void:
 	Fx.click.play()
@@ -111,36 +138,51 @@ func level_complete() -> void:
 	var mark : int = grade_image(img_expected, img_submitted)
 	%LevelCompleteScreen.level_complete(original_drawing, expected_result, submitted_result, mark, subject)
 
-func grade_image(img_expected: Image, img_submitted: Image):
+func color_difference(color_expected: Color, color_submitted: Color) -> float:
+	var difference : float
+	var coefficients : Vector3i
+	if (color_expected.r8 + color_submitted.r8) > 256:
+		coefficients = Vector3i(3, 4, 2)
+	else:
+		coefficients = Vector3i(2, 4, 3)
+	difference = coefficients.x * (color_expected.r8 - color_submitted.r8) ** 2 + \
+				 coefficients.y * (color_expected.g8 - color_submitted.g8) ** 2 + \
+				 coefficients.z * (color_expected.b8 - color_submitted.b8) ** 2
+	return difference
+
+func image_difference(img_expected: Image, img_submitted: Image) -> float:
 	var pixel_expected : Color
 	var pixel_submitted : Color
-	var difference : int
-	var total_difference : int = 0
+	var total_difference : float = 0
 	for y in range(grid_size.y):
 		for x in range(grid_size.x):
 			pixel_expected = img_expected.get_pixel(x, y)
 			pixel_submitted = img_submitted.get_pixel(x, y)
-			difference = max(abs(pixel_expected.r8 - pixel_submitted.r8), \
-							 abs(pixel_expected.g8 - pixel_submitted.g8), \
-							 abs(pixel_expected.b8 - pixel_submitted.b8))
-			total_difference += difference
-	var avg_difference = float(total_difference) / grid_size.x / grid_size.y
+			total_difference += color_difference(pixel_expected, pixel_submitted)
+	var avg_difference = total_difference / grid_size.x / grid_size.y
 	print_debug("avg difference: ", avg_difference)
-	if avg_difference >= 100:
+	return avg_difference
+
+func grade_image(img_expected: Image, img_submitted: Image):
+	var difference: float = image_difference(img_expected, img_submitted)
+
+	if difference >= 100000:
 		return 0
-	elif avg_difference >= 80:
+	elif difference >= 80000:
 		return 1
-	elif avg_difference >= 60:
+	elif difference >= 60000:
 		return 2
-	elif avg_difference >= 50:
+	elif difference >= 35000:
 		return 3
-	elif avg_difference >= 40:
+	elif difference >= 25000:
 		return 5
-	elif avg_difference >= 30:
+	elif difference >= 15000:
+		return 6
+	elif difference >= 10000:
 		return 7
-	elif avg_difference >= 20:
+	elif difference >= 5000:
 		return 8
-	elif avg_difference >= 10:
+	elif difference >= 1000:
 		return 9
 	else:
 		return 10
