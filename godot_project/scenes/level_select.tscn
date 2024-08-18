@@ -93,7 +93,7 @@ layout_mode = 2
 size_flags_horizontal = 6
 theme_override_constants/h_separation = 20
 theme_override_constants/v_separation = 20
-columns = 3
+columns = 4
 
 [node name="CenterContainer2" type="CenterContainer" parent="menuContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 500)

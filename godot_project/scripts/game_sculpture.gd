@@ -4,7 +4,7 @@ extends Node3D
 @onready var working_marker: Marker3D = %workingMarker
 @onready var original_camera: Camera3D = %originalCamera
 @onready var working_camera: Camera3D = %workingCamera
-
+@onready var working_sub_viewport: SubViewport = %workingSubViewport
 
 var _dragging = false
 var _dragging_source: Vector2i = Vector2i.ZERO
@@ -16,6 +16,14 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("paint"):
+		var mouse_pos : Vector2i = working_sub_viewport.get_mouse_position()
+		var ray_length : float = 1000
+		var from: Vector3 = working_camera.project_ray_origin(mouse_pos)
+		var to: Vector3 = from + working_camera.project_ray_normal(mouse_pos) * ray_length
+		var ray_params := PhysicsRayQueryParameters3D.create(from, to)
+		var ray_result: Dictionary = get_world_3d().direct_space_state.intersect_ray(ray_params)
+		print_debug(ray_result.get("position", to))
+		return
 		_dragging = true
 		_dragging_source = get_viewport().get_mouse_position()
 	if Input.is_action_just_released("paint"):

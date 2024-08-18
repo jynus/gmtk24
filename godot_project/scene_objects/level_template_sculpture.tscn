@@ -68,30 +68,30 @@ custom_minimum_size = Vector2(750, 750)
 layout_mode = 2
 stretch = true
 
-[node name="SubViewport" type="SubViewport" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer"]
+[node name="originalSubViewport" type="SubViewport" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer"]
 handle_input_locally = false
 size = Vector2i(750, 759)
 size_2d_override = Vector2i(650, 700)
 render_target_update_mode = 4
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer/SubViewport"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer/originalSubViewport"]
 transform = Transform3D(-0.397688, -0.727094, 0.559624, 0.691308, 0.163581, 0.7038, -0.603272, 0.666765, 0.437592, 77.5466, 48.4944, 54.8383)
 light_color = Color(0.314316, 0.314316, 0.314316, 1)
 shadow_enabled = true
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer/SubViewport"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer/originalSubViewport"]
 environment = SubResource("Environment_t2g0o")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer/SubViewport"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer/originalSubViewport"]
 transform = Transform3D(0.990584, 0, 0.136909, 0, 1, 0, -0.136909, 0, 0.990584, 2.5358, 0, 0)
 layers = 2
 mesh = ExtResource("4_wrcxi")
 skeleton = NodePath("../../..")
 
-[node name="originalMarker" type="Marker3D" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer/SubViewport"]
+[node name="originalMarker" type="Marker3D" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer/originalSubViewport"]
 unique_name_in_owner = true
 
-[node name="originalCamera" type="Camera3D" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer/SubViewport/originalMarker"]
+[node name="originalCamera" type="Camera3D" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer/originalSubViewport/originalMarker"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.962422, 0.271558, 0, -0.271558, 0.962422, 1.9496, 53.9576, 97.5277)
 cull_mask = 2
@@ -105,31 +105,32 @@ custom_minimum_size = Vector2(750, 750)
 layout_mode = 2
 stretch = true
 
-[node name="SubViewport" type="SubViewport" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer2"]
+[node name="workingSubViewport" type="SubViewport" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer2"]
+unique_name_in_owner = true
 handle_input_locally = false
 size = Vector2i(750, 759)
 size_2d_override = Vector2i(650, 700)
 render_target_update_mode = 4
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer2/SubViewport"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer2/workingSubViewport"]
 transform = Transform3D(-0.397688, -0.727094, 0.559624, 0.691308, 0.163581, 0.7038, -0.603272, 0.666765, 0.437592, 77.5466, 48.4944, 54.8383)
 shadow_enabled = true
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer2/SubViewport"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer2/workingSubViewport"]
 environment = SubResource("Environment_t2g0o")
 
-[node name="GridMap" type="GridMap" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer2/SubViewport"]
+[node name="GridMap" type="GridMap" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer2/workingSubViewport"]
 mesh_library = SubResource("MeshLibrary_cjihk")
 data = {
-"cells": PackedInt32Array(717, 39, 0, 255, 65535, 0, 256, 65535, 0, 257, 0, 0, 258, 0, 0, 258, 1, 0, 259, 1, 0, 259, 0, 0, 259, 65535, 0, 259, 65534, 0, 258, 65534, 0, 257, 65534, 0, 257, 65535, 0, 258, 65535, 0, 257, 65533, 0, 257, 65532, 0, 257, 65531, 0, 256, 65531, 0, 255, 65531, 0, 254, 65531, 0, 253, 65531, 0, 253, 65532, 0, 253, 65533, 0, 253, 65534, 0, 253, 65535, 0, 253, 0, 0, 253, 1, 0, 254, 1, 0, 255, 1, 0, 256, 1, 0, 257, 1, 0, 258, 65533, 0, 258, 65532, 0, 256, 65532, 0, 256, 65533, 0, 255, 65533, 0, 255, 65534, 0, 256, 65534, 0, 256, 0, 0, 255, 0, 0, 254, 0, 0, 254, 65535, 0, 254, 65532, 0, 254, 65533, 0, 254, 65534, 0, 259, 65532, 0, 259, 65533, 0, 259, 65531, 0, 258, 65531, 0, 255, 65532, 0)
+"cells": PackedInt32Array(717, 39, 0, 255, 65535, 0, 256, 65535, 0, 257, 0, 0, 258, 0, 0, 258, 1, 0, 259, 1, 0, 259, 0, 0, 259, 65535, 0, 259, 65534, 0, 258, 65534, 0, 257, 65534, 0, 257, 65535, 0, 257, 65533, 0, 257, 65532, 0, 257, 65531, 0, 256, 65531, 0, 255, 65531, 0, 254, 65531, 0, 253, 65531, 0, 253, 65532, 0, 253, 65533, 0, 253, 65534, 0, 253, 65535, 0, 253, 0, 0, 253, 1, 0, 254, 1, 0, 255, 1, 0, 256, 1, 0, 257, 1, 0, 258, 65533, 0, 258, 65532, 0, 256, 65532, 0, 256, 65533, 0, 255, 65533, 0, 255, 65534, 0, 256, 65534, 0, 256, 0, 0, 255, 0, 0, 254, 0, 0, 254, 65535, 0, 254, 65532, 0, 254, 65533, 0, 254, 65534, 0, 259, 65532, 0, 259, 65533, 0, 259, 65531, 0, 258, 65531, 0, 255, 65532, 0, 258, 65535, 0, -65283, 1, 0, -65282, 1, 0, -65281, 1, 0, -65277, 1, 0, -65278, 0, 0, -65278, 1, 0, -65279, 1, 0, -65279, 0, 0, -65280, 0, 0, -65280, 65535, 0, -65281, 65535, 0, -65278, 65532, 0, -65278, 65534, 0, -65278, 65533, 0, -65278, 65535, 0, -65277, 0, 0, -65277, 65535, 0, -65277, 65531, 0, -65278, 65531, 0, -65279, 65531, 0, -65280, 65531, 0, -65281, 65531, 0, -65283, 0, 0, -65283, 65535, 0, -65283, 65534, 0, -65283, 65533, 0, -65283, 65532, 0, -65283, 65531, 0, -65282, 65531, 0, -65277, 65532, 0, -65277, 65533, 0, -65277, 65534, 0, -65280, 1, 0, -65281, 65534, 0, -65281, 65533, 0, -65281, 65532, 0, -65280, 65532, 0, -65279, 65532, 0, -65279, 65533, 0, -65279, 65535, 0, -65280, 65534, 0, -65280, 65533, 0, -65279, 65534, 0, -65282, 65535, 0, -65282, 0, 0, -65282, 65534, 0, -65282, 65533, 0, -65282, 65532, 0, -65281, 0, 0)
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
-[node name="workingMarker" type="Marker3D" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer2/SubViewport"]
+[node name="workingMarker" type="Marker3D" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer2/workingSubViewport"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 512, 0, 0)
 
-[node name="workingCamera" type="Camera3D" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer2/SubViewport/workingMarker"]
+[node name="workingCamera" type="Camera3D" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer2/workingSubViewport/workingMarker"]
 unique_name_in_owner = true
 transform = Transform3D(0.999992, -0.003897, -0.00109958, 0.00404915, 0.962414, 0.271556, 0, -0.271558, 0.962422, 2.34045, 53.9576, 97.5277)
 attributes = SubResource("CameraAttributesPhysical_sft7l")
