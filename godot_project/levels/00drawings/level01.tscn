@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://yh7cblvy4rmw"]
+[gd_scene load_steps=4 format=3 uid="uid://72fbatl1le3o"]
 
 [ext_resource type="PackedScene" uid="uid://c6quisvt3ufal" path="res://scene_objects/level_template.tscn" id="1_f6ykj"]
-[ext_resource type="Texture2D" uid="uid://cvhvjt1c3xw5f" path="res://assets/sprites/drawings/Flag of France.webp" id="2_sm6jj"]
-[ext_resource type="Texture2D" uid="uid://g1euur2bt5pf" path="res://assets/sprites/drawings/Flag of France_resized.webp" id="3_p2bu5"]
+[ext_resource type="Texture2D" uid="uid://b3qksd10uyi5h" path="res://assets/sprites/drawings/Lime circle.webp" id="2_wi86r"]
+[ext_resource type="Texture2D" uid="uid://d2gj2uhy6hqc7" path="res://assets/sprites/drawings/Lime circle_resized.webp" id="3_rqg7f"]
 
 [node name="level" instance=ExtResource("1_f6ykj")]
-grid_size = Vector2i(6, 4)
-original_drawing = ExtResource("2_sm6jj")
-expected_result = ExtResource("3_p2bu5")
+subject = "Lime circle"
+grid_size = Vector2i(10, 10)
+original_drawing = ExtResource("2_wi86r")
+expected_result = ExtResource("3_rqg7f")

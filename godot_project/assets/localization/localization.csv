@@ -19,3 +19,15 @@ off,off,no
 Level complete!,Level complete!,¡Nivel completado!
 Next level,Next level,Siguiente nivel
 Replay,Replay,Volver a jugar
+Submit,Submit,Enviar
+drawings,drawings,dibujos
+sculptures,sculptures,esculturas
+Expected:,Expected:,Se esperaba:
+Draw: ,Draw: ,Dibuja: 
+Flag of France,Flag of France,la bandera de Francia
+Mona Lisa,Mona Lisa,la Mona Lisa
+Submitted:,Submitted:,Se envió:
+"Look at this beatiful image I painted with the #ScaleItDown game of a %s. Play at https://jynus.itch.io/scale-it-down","Look at this beatiful image I painted with the #ScaleItDown game of a %s. Play at https://jynus.itch.io/scale-it-down","Mira esta bonita imagen que he pintado con el juego #ScaleItDown de %s. Juega en https://jynus.itch.io/scale-it-down"
+"Please Confirm...","Please Confirm...","Por favor, confirma..."
+"Are you sure you want to submit the drawing?\n\nSome pixels still have the default color!","Are you sure you want to submit the drawing?\n\nSome pixels still have the default color!","¿Seguro que quieres enviar el dibujo?\n\n¡Algunos píxeles todavía tienen el color por defecto!"
+"[center][b]Design & programming[/b]:\n\nJaime Crespo \"jynus\"\n\n * Made with Godot 4 in 4 days for the Game Jam *[/center]","[center][b]Design & programming[/b]:\n\nJaime Crespo \"jynus\"\n\n * Made with Godot 4.3 in 4 days for the Game Jam *[/center]","[center][b]Diseño y programación[/b]:\n\nJaime Crespo \"jynus\"\n\n * Hecho con Godot 4.3 en 4 días para la GMTK Game Jame 2024 *[/center]"

@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://c4724smqdfkk6"]
+[gd_scene load_steps=5 format=3 uid="uid://c4724smqdfkk6"]
 
 [ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_3hvvb"]
 [ext_resource type="PackedScene" uid="uid://oq5258by1a1k" path="res://scene_objects/menu_button.tscn" id="1_fht2j"]
 [ext_resource type="LabelSettings" uid="uid://tje0ygjwilaf" path="res://resources/small_title_label_settings.tres" id="1_o8dpe"]
 [ext_resource type="PackedScene" uid="uid://b7fkndcm0e336" path="res://scene_objects/settings.tscn" id="4_cgqpe"]
-[ext_resource type="PackedScene" uid="uid://dg8iotoxg8rsy" path="res://scene_objects/blip.tscn" id="5_cwhfe"]
 
 [node name="pauseMenu" type="Control"]
 process_mode = 3
@@ -87,12 +86,12 @@ text = "Settings"
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 
-[node name="mainMenuButton" parent="background/pauseMenu/VBoxContainer" instance=ExtResource("1_fht2j")]
+[node name="levelSelectButton" parent="background/pauseMenu/VBoxContainer" instance=ExtResource("1_fht2j")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(900, 100)
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
-text = "Back to main menu"
+text = "Back to level selection"
 
 [node name="RightMargin" type="MarginContainer" parent="background/pauseMenu"]
 custom_minimum_size = Vector2(200, 0)
@@ -102,9 +101,7 @@ layout_mode = 2
 process_mode = 2
 visible = false
 
-[node name="blip" parent="." instance=ExtResource("5_cwhfe")]
-
 [connection signal="pressed" from="background/pauseMenu/VBoxContainer/returnButton" to="." method="_on_return_button_pressed"]
 [connection signal="pressed" from="background/pauseMenu/VBoxContainer/resetLevelButton" to="." method="_on_reset_level_button_pressed"]
 [connection signal="pressed" from="background/pauseMenu/VBoxContainer/settingsButton" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="background/pauseMenu/VBoxContainer/mainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="background/pauseMenu/VBoxContainer/levelSelectButton" to="." method="_on_main_menu_button_pressed"]

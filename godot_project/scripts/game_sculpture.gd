@@ -72,3 +72,9 @@ func _on_up_button_pressed() -> void:
 
 func _on_down_button_pressed() -> void:
 	move_down()
+
+
+func _on_submit_button_pressed() -> void:
+	Fx.click.play()
+	# TODO:
+	%LevelCompleteScreen.level_complete(null, null, null, 0)

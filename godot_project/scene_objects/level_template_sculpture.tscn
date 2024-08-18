@@ -90,7 +90,6 @@ skeleton = NodePath("../../..")
 
 [node name="originalMarker" type="Marker3D" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer/SubViewport"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="originalCamera" type="Camera3D" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer/SubViewport/originalMarker"]
 unique_name_in_owner = true

@@ -2,7 +2,6 @@ extends Node2D
 
 @onready var exit_button : Button = %ExitButton
 @onready var play_button : Button = $menuContainer/optionsContainer/buttonsContainer/PlayButton
-@onready var blip : AudioStreamPlayer = $blip
 @onready var settings := $settings
 
 func _init():
@@ -32,7 +31,7 @@ func show_credits():
 
 func _on_settings_button_pressed():
 	"""Show the settings menu"""
-	blip.play()
+	Fx.click.play()
 	show_settings()
 
 func exit_game():
@@ -44,17 +43,14 @@ func start_new_game():
 	get_tree().change_scene_to_file("res://scenes/level_select.tscn")
 
 func _on_credits_button_pressed():
-	blip.play()
-	await blip.finished
+	Fx.click.play()
 	show_credits()
 
 func _on_exit_button_pressed():
-	blip.play()
-	await blip.finished
+	Fx.click.play()
+	await Fx.click.finished
 	exit_game()
 
-
 func _on_play_button_pressed():
-	blip.play()
-	await blip.finished
+	Fx.click.play()
 	start_new_game()

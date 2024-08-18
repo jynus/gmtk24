@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://3dgtundptfy8"]
+[gd_scene load_steps=13 format=3 uid="uid://3dgtundptfy8"]
 
 [ext_resource type="Script" path="res://scripts/level_select.gd" id="1_rs3vw"]
 [ext_resource type="LabelSettings" uid="uid://tje0ygjwilaf" path="res://resources/small_title_label_settings.tres" id="2_gj63y"]
@@ -9,7 +9,6 @@
 [ext_resource type="StyleBox" uid="uid://67m76h2nyeyy" path="res://resources/main_menu_button_style.tres" id="6_ua4t1"]
 [ext_resource type="StyleBox" uid="uid://cscwrtv4vl12l" path="res://resources/main_menu_button_hover_style.tres" id="7_vep0o"]
 [ext_resource type="StyleBox" uid="uid://dtfd366g1j00" path="res://resources/main_menu_button_pressed_style.tres" id="8_lcgvi"]
-[ext_resource type="PackedScene" uid="uid://dg8iotoxg8rsy" path="res://scene_objects/blip.tscn" id="9_6gfxd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hwumb"]
 font = ExtResource("4_kufbg")
@@ -38,6 +37,9 @@ expand_margin_bottom = 2.0
 script = ExtResource("1_rs3vw")
 
 [node name="backgroudMenu" parent="." instance=ExtResource("2_kxagj")]
+
+[node name="ColorRect" parent="backgroudMenu" index="0"]
+color = Color(0, 0.164706, 0.627451, 1)
 
 [node name="menuContainer" type="VBoxContainer" parent="."]
 offset_right = 1920.0
@@ -128,8 +130,8 @@ custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_vertical = 8
 
-[node name="blip" parent="." instance=ExtResource("9_6gfxd")]
-
 [connection signal="pressed" from="menuContainer/HBoxContainer/CenterContainer/previousWorldButton" to="." method="_on_previous_world_button_pressed"]
 [connection signal="pressed" from="menuContainer/HBoxContainer/CenterContainer2/nextWorldButton" to="." method="_on_next_world_button_pressed"]
 [connection signal="pressed" from="menuContainer/backButton" to="." method="_on_back_button_pressed"]
+
+[editable path="backgroudMenu"]

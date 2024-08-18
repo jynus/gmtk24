@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://c6quisvt3ufal"]
+[gd_scene load_steps=9 format=3 uid="uid://c6quisvt3ufal"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_m8pct"]
 [ext_resource type="Texture2D" uid="uid://cvhvjt1c3xw5f" path="res://assets/sprites/drawings/Flag of France.webp" id="2_a476o"]
 [ext_resource type="PackedScene" uid="uid://oq5258by1a1k" path="res://scene_objects/menu_button.tscn" id="2_ob2lu"]
 [ext_resource type="PackedScene" uid="uid://buqvr00anmyup" path="res://scene_objects/level_complete.tscn" id="3_ey55l"]
 [ext_resource type="Texture2D" uid="uid://degti07rp3iqy" path="res://assets/sprites/drawings/Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg" id="4_c2a7g"]
+[ext_resource type="LabelSettings" uid="uid://tje0ygjwilaf" path="res://resources/small_title_label_settings.tres" id="4_empgg"]
 [ext_resource type="PackedScene" uid="uid://c4724smqdfkk6" path="res://scene_objects/pause_menu.tscn" id="4_wnsgd"]
 [ext_resource type="Texture2D" uid="uid://tq62h3qdi8o6" path="res://assets/sprites/drawings/Mona Lisa, by Leonardo da Vinci_resized.webp" id="5_rpkmt"]
 
@@ -14,6 +15,13 @@ grid_size = Vector2i(10, 15)
 pixel_separation = 5
 original_drawing = ExtResource("4_c2a7g")
 expected_result = ExtResource("5_rpkmt")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.113725, 0.133333, 0.160784, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchors_preset = 15
@@ -27,27 +35,37 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 30
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-custom_minimum_size = Vector2(1800, 900)
+[node name="Title" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(960, 150)
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/separation = 15
+size_flags_horizontal = 5
+text = "Draw ..."
+label_settings = ExtResource("4_empgg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1700, 700)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 50
 
 [node name="original" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(720, 720)
+custom_minimum_size = Vector2(700, 700)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("2_a476o")
-expand_mode = 1
-stretch_mode = 5
+expand_mode = 4
+stretch_mode = 4
 
 [node name="canvas" type="GridContainer" parent="VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(720, 0)
+custom_minimum_size = Vector2(700, 700)
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 3
 size_flags_vertical = 4
 theme_override_constants/h_separation = 5
 theme_override_constants/v_separation = 5
@@ -56,10 +74,10 @@ metadata/_edit_use_anchors_ = true
 
 [node name="ColorPicker" type="ColorPicker" parent="VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(300, 300)
+custom_minimum_size = Vector2(0, 500)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_horizontal = 6
+size_flags_vertical = 0
 alignment = 1
 color = Color(0, 0, 0, 1)
 picker_shape = 1

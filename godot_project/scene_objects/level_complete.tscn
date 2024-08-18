@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://d3ubas71s5u06" path="res://assets/sprites/stars_filled.webp" id="4_eejmd"]
 [ext_resource type="Texture2D" uid="uid://cl5h54ouarkps" path="res://assets/sprites/drawings/Mona Lisa, by Leonardo da Vinci_resized_indexed.webp" id="4_r5s5y"]
 [ext_resource type="Texture2D" uid="uid://tq62h3qdi8o6" path="res://assets/sprites/drawings/Mona Lisa, by Leonardo da Vinci_resized.webp" id="4_r5vnf"]
-[ext_resource type="PackedScene" uid="uid://dg8iotoxg8rsy" path="res://scene_objects/blip.tscn" id="5_wrsi5"]
+[ext_resource type="Texture2D" uid="uid://bwhbp3rxdiaox" path="res://assets/sprites/share.webp" id="8_3jwa3"]
 
 [node name="LevelCompleteScreen" type="Control"]
 process_mode = 3
@@ -22,7 +22,7 @@ script = ExtResource("1_r8gc7")
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
-color = Color(0.501961, 0.501961, 0.501961, 1)
+color = Color(0.113725, 0.133333, 0.160784, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="background"]
 layout_mode = 1
@@ -122,8 +122,22 @@ theme_override_font_sizes/font_size = 30
 disabled = true
 text = "Replay"
 
-[node name="blip" parent="." instance=ExtResource("5_wrsi5")]
+[node name="ShareButton" type="TextureButton" parent="background"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 1732.0
+offset_top = 646.0
+offset_right = 1864.0
+offset_bottom = 778.0
+texture_normal = ExtResource("8_3jwa3")
+ignore_texture_size = true
+stretch_mode = 0
 
 [connection signal="pressed" from="background/VBoxContainer/nextLevelButton" to="." method="load_next_level"]
 [connection signal="pressed" from="background/VBoxContainer/HBoxContainer/mainMenuButton" to="." method="return_to_main_menu"]
 [connection signal="pressed" from="background/VBoxContainer/HBoxContainer/replayButton" to="." method="reload_current_level"]
+[connection signal="focus_entered" from="background/ShareButton" to="." method="_on_share_button_entered"]
+[connection signal="focus_exited" from="background/ShareButton" to="." method="_on_share_button_exited"]
+[connection signal="mouse_entered" from="background/ShareButton" to="." method="_on_share_button_entered"]
+[connection signal="mouse_exited" from="background/ShareButton" to="." method="_on_share_button_exited"]
+[connection signal="pressed" from="background/ShareButton" to="." method="_on_share_button_pressed"]

@@ -1,5 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bogvwyjpyobka"]
+[gd_scene load_steps=4 format=3 uid="uid://yh7cblvy4rmw"]
 
 [ext_resource type="PackedScene" uid="uid://c6quisvt3ufal" path="res://scene_objects/level_template.tscn" id="1_f6ykj"]
+[ext_resource type="Texture2D" uid="uid://cvhvjt1c3xw5f" path="res://assets/sprites/drawings/Flag of France.webp" id="2_7k0hd"]
+[ext_resource type="Texture2D" uid="uid://g1euur2bt5pf" path="res://assets/sprites/drawings/Flag of France_resized.webp" id="3_6dkws"]
 
 [node name="level" instance=ExtResource("1_f6ykj")]
+subject = "Flag of France"
+grid_size = Vector2i(6, 4)
+original_drawing = ExtResource("2_7k0hd")
+expected_result = ExtResource("3_6dkws")

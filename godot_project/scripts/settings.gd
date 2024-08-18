@@ -5,7 +5,6 @@ class_name UserSettings extends Node2D
 @onready var music_volume = %musicVolume
 @onready var sfx_volume = %sfxVolume
 @onready var language_option = %LanguageOption
-@onready var blip = $blip
 @onready var vsync_checkbox: CheckBox = %vsyncCheckbox
 
 @export var default_volume : float = 0.4
@@ -91,11 +90,11 @@ func apply_vsync(vsync : bool):
 	set_config("vsync", vsync_mode)
 
 func _on_done_button_pressed():
-	blip.play()
+	Fx.click.play()
 	hide_settings()
 
 func _on_full_screen_checkbox_toggled(button_pressed):
-	blip.play()
+	Fx.click.play()
 	apply_fullscreen(button_pressed)
 	full_screen_checkbox.text = "on" if button_pressed else "off"
 
@@ -118,7 +117,7 @@ func _on_music_volume_value_changed(value):
 
 func _on_sfx_volume_value_changed(value):
 	apply_volume("sfx", value)
-	blip.play()
+	Fx.click.play()
 
 func set_language(lang: String):
 	TranslationServer.set_locale(lang)
@@ -142,6 +141,6 @@ func _on_language_option_item_selected(index):
 
 
 func _on_vsync_toggled(button_pressed):
-	blip.play()
+	Fx.click.play()
 	apply_vsync(button_pressed)
 	vsync_checkbox.text = "on" if button_pressed else "off"

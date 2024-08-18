@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4mol6t80eo4f"]
+
+[ext_resource type="PackedScene" uid="uid://c6quisvt3ufal" path="res://scene_objects/level_template.tscn" id="1_0t225"]
+[ext_resource type="Texture2D" uid="uid://ca7uq6amkwq00" path="res://assets/sprites/drawings/Starry Night.webp" id="2_icrtn"]
+[ext_resource type="Texture2D" uid="uid://cbqauhuljbbhv" path="res://assets/sprites/drawings/Starry Night_resized.webp" id="3_psi6b"]
+
+[node name="level" instance=ExtResource("1_0t225")]
+subject = "Starry Night"
+grid_size = Vector2i(30, 24)
+original_drawing = ExtResource("2_icrtn")
+expected_result = ExtResource("3_psi6b")

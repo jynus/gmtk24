@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdmsyv6kbcxvh"]
+
+[ext_resource type="AudioStream" uid="uid://d3ixwbo1crwko" path="res://assets/sfx/Button Press Click, Tap, Video Game, Main Menu, Select, Positive 03.ogg" id="1_id4ng"]
+[ext_resource type="Script" path="res://scripts/fx.gd" id="1_l6i5p"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_au0o3"]
+random_pitch = 3.0
+random_volume_offset_db = 3.0
+streams_count = 1
+stream_0/stream = ExtResource("1_id4ng")
+
+[node name="FX" type="Node2D"]
+script = ExtResource("1_l6i5p")
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_au0o3")
+bus = &"sfx"

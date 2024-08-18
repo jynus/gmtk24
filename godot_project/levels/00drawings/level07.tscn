@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://wwddsjpwb2bv"]
+
+[ext_resource type="PackedScene" uid="uid://c6quisvt3ufal" path="res://scene_objects/level_template.tscn" id="1_lf4a0"]
+[ext_resource type="Texture2D" uid="uid://c8oswl0qm0tn2" path="res://assets/sprites/drawings/Piet Mondriaan, Composition II in Red, Blue, and Yellow.webp" id="2_dkqdn"]
+[ext_resource type="Texture2D" uid="uid://ltiwy0svrv0k" path="res://assets/sprites/drawings/Piet Mondriaan, Composition II in Red, Blue, and Yellow_resized.webp" id="3_hn4fu"]
+
+[node name="level" instance=ExtResource("1_lf4a0")]
+subject = "Composition with Red, Blue and Yellow"
+grid_size = Vector2i(20, 20)
+original_drawing = ExtResource("2_dkqdn")
+expected_result = ExtResource("3_hn4fu")

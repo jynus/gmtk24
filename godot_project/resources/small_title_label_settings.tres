@@ -4,5 +4,5 @@
 
 [resource]
 font = ExtResource("1_gw15k")
-font_size = 125
+font_size = 100
 shadow_size = 0

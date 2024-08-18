@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b7fkndcm0e336"]
+[gd_scene load_steps=14 format=3 uid="uid://b7fkndcm0e336"]
 
 [ext_resource type="Script" path="res://scripts/settings.gd" id="1_6tbik"]
 [ext_resource type="PackedScene" uid="uid://k635iu86fy37" path="res://scene_objects/menu_background.tscn" id="2_y53hl"]
@@ -8,7 +8,6 @@
 [ext_resource type="StyleBox" uid="uid://67m76h2nyeyy" path="res://resources/main_menu_button_style.tres" id="6_6el3k"]
 [ext_resource type="StyleBox" uid="uid://cscwrtv4vl12l" path="res://resources/main_menu_button_hover_style.tres" id="7_rmflb"]
 [ext_resource type="StyleBox" uid="uid://dtfd366g1j00" path="res://resources/main_menu_button_pressed_style.tres" id="8_qnbmh"]
-[ext_resource type="PackedScene" uid="uid://dg8iotoxg8rsy" path="res://scene_objects/blip.tscn" id="9_0dprg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7a45g"]
 font = ExtResource("4_chhbm")
@@ -188,8 +187,6 @@ theme_override_styles/hover = ExtResource("7_rmflb")
 theme_override_styles/pressed = ExtResource("8_qnbmh")
 theme_override_styles/normal = ExtResource("6_6el3k")
 text = "Done"
-
-[node name="blip" parent="." instance=ExtResource("9_0dprg")]
 
 [connection signal="item_selected" from="menuContainer/SettingsGrid/LanguageOption" to="." method="_on_language_option_item_selected"]
 [connection signal="value_changed" from="menuContainer/SettingsGrid/musicVolume" to="." method="_on_music_volume_value_changed"]

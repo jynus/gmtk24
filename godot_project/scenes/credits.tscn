@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cp76wk0hhmwag"]
+[gd_scene load_steps=15 format=3 uid="uid://cp76wk0hhmwag"]
 
 [ext_resource type="LabelSettings" uid="uid://csrb5ilr7y6dy" path="res://resources/main_menu_title_label_setting.tres" id="1_c4tx6"]
 [ext_resource type="Script" path="res://scripts/credits.gd" id="1_o3suw"]
@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://sibo03pa8mmh" path="res://assets/sprites/x_icon.webp" id="10_65suw"]
 [ext_resource type="Texture2D" uid="uid://s6q5vi3fy8bn" path="res://assets/sprites/itch_icon.webp" id="11_i1l18"]
 [ext_resource type="Texture2D" uid="uid://chsacipy1xum" path="res://assets/sprites/web_icon.webp" id="12_uoica"]
-[ext_resource type="PackedScene" uid="uid://dg8iotoxg8rsy" path="res://scene_objects/blip.tscn" id="13_4wf1y"]
 [ext_resource type="PackedScene" uid="uid://oq5258by1a1k" path="res://scene_objects/menu_button.tscn" id="13_25eo3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hugtt"]
@@ -35,6 +34,9 @@ expand_margin_bottom = 2.0
 script = ExtResource("1_o3suw")
 
 [node name="background" parent="." instance=ExtResource("2_pa7y0")]
+
+[node name="ColorRect" parent="background" index="0"]
+color = Color(0.717787, 0, 0.195984, 1)
 
 [node name="menuContainer" type="VBoxContainer" parent="."]
 offset_right = 1920.0
@@ -165,9 +167,9 @@ theme_override_font_sizes/font_size = 45
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 
-[node name="blip" parent="." instance=ExtResource("13_4wf1y")]
-
 [connection signal="pressed" from="menuContainer/optionsContainer/socialButtonContainer/twitterButton" to="." method="_on_twitter_button_pressed"]
 [connection signal="pressed" from="menuContainer/optionsContainer/socialButtonContainer/itchioButton" to="." method="_on_itchio_button_pressed"]
 [connection signal="pressed" from="menuContainer/optionsContainer/socialButtonContainer/webButton" to="." method="_on_web_button_pressed"]
 [connection signal="pressed" from="menuContainer/doneButton" to="." method="_on_done_button_pressed"]
+
+[editable path="background"]
