@@ -14,7 +14,7 @@ config/name="Scale It Down!"
 run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 boot_splash/image="res://assets/sprites/a_game_by_jynus_background.png"
-config/icon="res://assets/sprites/a_game_by_jynus_background.png"
+config/icon="res://assets/sprites/logo.webp"
 boot_splash/minimum_display_time=100
 
 [autoload]

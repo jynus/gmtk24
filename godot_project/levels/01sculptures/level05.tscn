@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bglmixbnm61jv"]
+
+[ext_resource type="PackedScene" uid="uid://dbj0f5wflos1b" path="res://scene_objects/level_template_sculpture.tscn" id="1_p5ahp"]
+[ext_resource type="ArrayMesh" uid="uid://dv4ksslheci4m" path="res://assets/3d/sculptures/teapot.obj" id="2_1lyyw"]
+
+[node name="level" instance=ExtResource("1_p5ahp")]
+subject = "Teapot"
+original_mesh = ExtResource("2_1lyyw")
+default_camera_zoom = 35.0

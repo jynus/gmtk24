@@ -10,6 +10,7 @@ var playlist : Dictionary = {
 	"menu": preload("res://assets/music/ES_Replica (Instrumental Version) - I'MIN.ogg"),
 	"pause": preload("res://assets/music/ES_Love and Rewind (Instrumental Version) - I'MIN.ogg"),
 	"game": preload("res://assets/music/ES_Simple Minds (Instrumental Version) - I'MIN.ogg"),
+	"game2": preload("res://assets/music/ES_Midnight Messages - Rebecca Mardal.ogg"),
 	"level_complete": preload("res://assets/music/ES_Rise and Rise - Falcon Dives.ogg"),
 	"lost": preload("res://assets/music/ES_Love and Rewind (Instrumental Version) - I'MIN.ogg"),
 	"win": preload("res://assets/music/ES_Rise and Rise - Falcon Dives.ogg"),

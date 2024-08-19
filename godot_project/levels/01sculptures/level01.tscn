@@ -1,5 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://brgni7iix1onk"]
+[gd_scene load_steps=3 format=3 uid="uid://b8e7afoujixnb"]
 
-[ext_resource type="PackedScene" uid="uid://dbj0f5wflos1b" path="res://scene_objects/level_template_sculpture.tscn" id="1_h22dk"]
+[ext_resource type="PackedScene" uid="uid://dbj0f5wflos1b" path="res://scene_objects/level_template_sculpture.tscn" id="1_28h5a"]
+[ext_resource type="ArrayMesh" uid="uid://fyma4wlyennc" path="res://assets/3d/sculptures/tetris_t_shape.obj" id="2_xce1d"]
 
-[node name="level" instance=ExtResource("1_h22dk")]
+[node name="level" instance=ExtResource("1_28h5a")]
+subject = "Tetris T Shape"
+original_mesh = ExtResource("2_xce1d")
+default_camera_zoom = 7.0
+
+[node name="originalMeshInstance" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer/originalSubViewport" index="3"]
+mesh = ExtResource("2_xce1d")
+
+[node name="originalCamera" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer/originalSubViewport/originalMarker" index="0"]
+v_offset = 2.0
+
+[node name="workingCamera" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer2/workingSubViewport/workingMarker" index="0"]
+v_offset = 2.0
