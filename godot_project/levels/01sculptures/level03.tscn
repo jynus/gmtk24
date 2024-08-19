@@ -1,47 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://cgxm7oo74cg45"]
+[gd_scene load_steps=4 format=3 uid="uid://cgxm7oo74cg45"]
 
 [ext_resource type="PackedScene" uid="uid://dbj0f5wflos1b" path="res://scene_objects/level_template_sculpture.tscn" id="1_w287w"]
 [ext_resource type="ArrayMesh" uid="uid://dvxxgv7s2131g" path="res://assets/3d/sculptures/chair.obj" id="2_ktjfm"]
+[ext_resource type="PackedScene" uid="uid://dfoi1vupwaetu" path="res://assets/3d/grids/chair.tscn" id="3_llv5a"]
 
 [node name="level" instance=ExtResource("1_w287w")]
 subject = "Chair"
 original_mesh = ExtResource("2_ktjfm")
+expected_grid = ExtResource("3_llv5a")
+default_camera_zoom = 25.0
 
-[node name="OmniLight3D" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer/originalSubViewport" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.6296, 63.8043, 61.9234)
-light_color = Color(1, 0.231373, 1, 1)
+[node name="originalCamera" parent="CanvasLayer/Layout/HBoxContainer/SubViewportContainer/originalSubViewport/originalScene/originalMarker" index="0"]
+v_offset = 10.0
 
-[node name="OmniLight3D2" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer/originalSubViewport" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.9003, -83.0427, -67.4716)
-light_color = Color(0.230984, 0.677161, 1, 1)
-
-[node name="originalMeshInstance" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer/originalSubViewport" index="3"]
-mesh = ExtResource("2_ktjfm")
-
-[node name="originalMarker" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer/originalSubViewport" index="4"]
-transform = Transform3D(0.939693, -0.0593912, 0.336824, 0, 0.984808, 0.173648, -0.34202, -0.163176, 0.925416, 0, 0, 0)
-
-[node name="originalCamera" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer/originalSubViewport/originalMarker" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 80)
-v_offset = 8.0
-
-[node name="OmniLight3D2" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer2/workingSubViewport" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 434.729, 61.6997, 85.6116)
-light_color = Color(1, 0.231373, 1, 1)
-
-[node name="OmniLight3D3" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer2/workingSubViewport" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 589.741, -83.0427, -67.6734)
-light_color = Color(0.230984, 0.677161, 1, 1)
-
-[node name="workingMarker" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer2/workingSubViewport" index="4"]
-transform = Transform3D(0.939693, -0.0593912, 0.336824, 0, 0.984808, 0.173648, -0.34202, -0.163176, 0.925416, 512, 0, 0)
-
-[node name="workingCamera" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer2/workingSubViewport/workingMarker" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 80)
-v_offset = 8.0
-
-[node name="raystart" parent="." index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.4288, 0, 0)
-
-[node name="rayend" parent="." index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.122, 0, 0)
+[node name="workingCamera" parent="CanvasLayer/Layout/HBoxContainer/SubViewportContainer2/workingSubViewport/workingScene/workingMarker" index="0"]
+v_offset = 10.0

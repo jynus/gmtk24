@@ -8,11 +8,8 @@ subject = "Tetris T Shape"
 original_mesh = ExtResource("2_xce1d")
 default_camera_zoom = 7.0
 
-[node name="originalMeshInstance" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer/originalSubViewport" index="3"]
-mesh = ExtResource("2_xce1d")
-
-[node name="originalCamera" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer/originalSubViewport/originalMarker" index="0"]
+[node name="originalCamera" parent="CanvasLayer/Layout/HBoxContainer/SubViewportContainer/originalSubViewport/originalScene/originalMarker" index="0"]
 v_offset = 2.0
 
-[node name="workingCamera" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer2/workingSubViewport/workingMarker" index="0"]
+[node name="workingCamera" parent="CanvasLayer/Layout/HBoxContainer/SubViewportContainer2/workingSubViewport/workingScene/workingMarker" index="0"]
 v_offset = 2.0

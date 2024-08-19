@@ -2,6 +2,7 @@ extends Node3D
 
 @export var subject: String
 @export var original_mesh: Mesh
+@export var expected_grid: PackedScene
 @export var default_camera_zoom: float
 
 @onready var original_marker: Marker3D = %originalMarker
@@ -169,5 +170,7 @@ func _on_down_button_pressed() -> void:
 
 func _on_submit_button_pressed() -> void:
 	Fx.click.play()
-	# TODO:
-	%LevelCompleteScreen.level_complete(null, null, null, 0, "")
+	# TODO
+	%LevelCompleteScreen.level_complete(original_mesh, expected_grid, [], 0, subject, default_camera_zoom, %originalCamera.v_offset)
+	%Layout.hide()
+	%originalMeshInstance.hide()
