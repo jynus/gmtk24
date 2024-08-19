@@ -163,7 +163,7 @@ func image_difference(img_expected: Image, img_submitted: Image) -> float:
 	print_debug("avg difference: ", avg_difference)
 	return avg_difference
 
-func grade_image(img_expected: Image, img_submitted: Image):
+func grade_image(img_expected: Image, img_submitted: Image) -> int:
 	var difference: float = image_difference(img_expected, img_submitted)
 
 	if difference >= 110000:

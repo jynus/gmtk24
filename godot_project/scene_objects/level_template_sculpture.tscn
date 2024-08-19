@@ -1,8 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://dbj0f5wflos1b"]
+[gd_scene load_steps=18 format=3 uid="uid://dbj0f5wflos1b"]
 
 [ext_resource type="Script" path="res://scripts/game_sculpture.gd" id="1_aiq8c"]
 [ext_resource type="ArrayMesh" uid="uid://cqtx6x3enl8yl" path="res://assets/3d/sculptures/ramp.obj" id="2_npmpr"]
-[ext_resource type="PackedScene" uid="uid://k7k0pnkmtut0" path="res://assets/3d/grids/tetris_t_shape.tscn" id="3_qxjuk"]
 [ext_resource type="PackedScene" uid="uid://oq5258by1a1k" path="res://scene_objects/menu_button.tscn" id="5_gu0ne"]
 [ext_resource type="PackedScene" uid="uid://blsv4kfkbe58v" path="res://scene_objects/level_complete_sculpture.tscn" id="5_vs8kd"]
 [ext_resource type="PackedScene" uid="uid://c4724smqdfkk6" path="res://scene_objects/pause_menu.tscn" id="7_u6yug"]
@@ -65,7 +64,6 @@ height = 10.0
 [node name="level" type="Node3D"]
 script = ExtResource("1_aiq8c")
 original_mesh = ExtResource("2_npmpr")
-expected_grid = ExtResource("3_qxjuk")
 default_camera_zoom = 15.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

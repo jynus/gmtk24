@@ -1,21 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://b67ratsgvytl4"]
+[gd_scene load_steps=3 format=3 uid="uid://b67ratsgvytl4"]
 
 [ext_resource type="PackedScene" uid="uid://dbj0f5wflos1b" path="res://scene_objects/level_template_sculpture.tscn" id="1_x0bvp"]
 [ext_resource type="PackedScene" uid="uid://bhi56y5wsi520" path="res://assets/3d/grids/ramp.tscn" id="2_e3uf5"]
-[ext_resource type="ArrayMesh" uid="uid://cqtx6x3enl8yl" path="res://assets/3d/sculptures/ramp.obj" id="2_r5kjv"]
 
 [node name="level" instance=ExtResource("1_x0bvp")]
 subject = "Ramp"
-expected_grid = ExtResource("2_e3uf5")
-
-[node name="originalMeshInstance" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer/originalSubViewport" index="3"]
-mesh = ExtResource("2_r5kjv")
-
-[node name="originalMarker" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer/originalSubViewport" index="4"]
-transform = Transform3D(0.939693, -0.0593911, 0.336824, 0, 0.984808, 0.173648, -0.34202, -0.163176, 0.925416, 0, 0, 0)
-
-[node name="workingMarker" parent="CanvasLayer/VBoxContainer/HBoxContainer/SubViewportContainer2/workingSubViewport" index="3"]
-transform = Transform3D(0.939693, -0.0593911, 0.336824, 0, 0.984808, 0.173648, -0.34202, -0.163176, 0.925416, 512, 0, 0)
+expected_scene = ExtResource("2_e3uf5")
 
 [node name="raystart" parent="." index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 512, 0, 0)

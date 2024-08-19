@@ -7,7 +7,7 @@
 [node name="level" instance=ExtResource("1_w287w")]
 subject = "Chair"
 original_mesh = ExtResource("2_ktjfm")
-expected_grid = ExtResource("3_llv5a")
+expected_scene = ExtResource("3_llv5a")
 default_camera_zoom = 25.0
 
 [node name="originalCamera" parent="CanvasLayer/Layout/HBoxContainer/SubViewportContainer/originalSubViewport/originalScene/originalMarker" index="0"]

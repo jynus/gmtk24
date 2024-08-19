@@ -1,8 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://d3esnu08gldxg"]
+[gd_scene load_steps=4 format=3 uid="uid://d3esnu08gldxg"]
 
 [ext_resource type="PackedScene" uid="uid://dbj0f5wflos1b" path="res://scene_objects/level_template_sculpture.tscn" id="1_8wdmi"]
 [ext_resource type="ArrayMesh" uid="uid://cr1xpjstlgvsi" path="res://assets/3d/sculptures/sphere.obj" id="2_4jxsl"]
+[ext_resource type="PackedScene" uid="uid://cxfpvgfi753l2" path="res://assets/3d/grids/sphere.tscn" id="3_sjsr7"]
 
 [node name="level" instance=ExtResource("1_8wdmi")]
 subject = "Sphere"
 original_mesh = ExtResource("2_4jxsl")
+expected_scene = ExtResource("3_sjsr7")
+default_camera_zoom = 13.0

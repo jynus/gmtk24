@@ -2,7 +2,7 @@ extends Node3D
 
 @export var subject: String
 @export var original_mesh: Mesh
-@export var expected_grid: PackedScene
+@export var expected_scene: PackedScene
 @export var default_camera_zoom: float
 
 @onready var original_marker: Marker3D = %originalMarker
@@ -170,7 +170,55 @@ func _on_down_button_pressed() -> void:
 
 func _on_submit_button_pressed() -> void:
 	Fx.click.play()
-	# TODO
-	%LevelCompleteScreen.level_complete(original_mesh, expected_grid, [], 0, subject, default_camera_zoom, %originalCamera.v_offset)
+	var sculpture : Dictionary = {}
+	var reference : Dictionary = {}
+	var expected_grid : GridMap = expected_scene.instantiate().get_children()[0] if expected_scene != null else null
+	print_debug("Sculpted: ", grid_map.get_used_cells())
+	print_debug("Expected: ", expected_grid.get_used_cells())
+	for i in range(_grid_min_bounds.x, _grid_max_bounds.x + 1):
+		for j in range(_grid_min_bounds.y, _grid_max_bounds.y + 1):
+			for k in range(_grid_min_bounds.z, _grid_max_bounds.z + 1):
+				sculpture[str(i) + "," + str(j) + "," + str(k)] = grid_map.get_cell_item(Vector3i(i, j, k))
+				reference[str(i) + "," + str(j) + "," + str(k)] = expected_grid.get_cell_item(Vector3i(i - 1, j, k - 1))
+	var mark: int = grade(reference, sculpture)
+	%LevelCompleteScreen.level_complete(original_mesh, expected_scene, sculpture, mark, subject, default_camera_zoom, %originalCamera.v_offset, _grid_min_bounds, _grid_max_bounds)
 	%Layout.hide()
 	%originalMeshInstance.hide()
+
+func grade(reference: Dictionary, sculpture: Dictionary):
+	print_debug("Sculpted: ", sculpture)
+	print_debug("Expected: ", reference)
+	var mark : int = 0
+	var num_voxels : int = 0
+	var index : String
+	for i in range(_grid_min_bounds.x, _grid_max_bounds.x + 1):
+		for j in range(_grid_min_bounds.y, _grid_max_bounds.y + 1):
+			for k in range(_grid_min_bounds.z, _grid_max_bounds.z + 1):
+				num_voxels += 1
+				index = str(i) + "," + str(j) + "," + str(k)
+				if (sculpture[index] < 0 and reference[index] < 0) or (sculpture[index] >= 0 and reference[index] >= 0):
+					mark += 1
+	var percentage_correct : float = (float(mark) * 100.0) / float(num_voxels)
+	print_debug("mark: ", mark, ", num_voxels: ", num_voxels, ", percentage_correct: ", percentage_correct)
+	if percentage_correct < 30:
+		return 0
+	elif percentage_correct < 50:
+		return 1
+	elif percentage_correct < 60:
+		return 2
+	elif percentage_correct < 70:
+		return 3
+	elif percentage_correct < 80:
+		return 4
+	elif percentage_correct < 85:
+		return 5
+	elif percentage_correct < 90:
+		return 6
+	elif percentage_correct < 95:
+		return 7
+	elif percentage_correct < 99:
+		return 8
+	elif percentage_correct < 100:
+		return 9
+	else:
+		return 10

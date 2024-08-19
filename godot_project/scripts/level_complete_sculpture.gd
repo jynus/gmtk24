@@ -13,10 +13,11 @@ const TWITTER_SHARE_URL = "https://x.com/intent/tweet?text="
 @onready var main_menu_button: Button = %mainMenuButton
 @onready var replay_button: Button = %replayButton
 @onready var share_button: TextureButton = %ShareButton
+@onready var submitted_grid: GridMap = %submittedGrid
 
 var _original_mesh : Mesh
 var _expected_grid : PackedScene
-var _submitted_grid : Array
+var _submitted_grid : Dictionary
 
 const ROTATION_SPEED = 20
 var _rotating : bool = false
@@ -62,13 +63,18 @@ func rotate_models_left(degrees: float):
 	expected_marker.global_rotation_degrees.z = 0
 	submitted_marker.rotation = expected_marker.rotation
 
-func level_complete(original: Mesh, expected: PackedScene, submitted: Array, mark: int, subject: String, default_camera_zoom: float, v_offset: float):
+func level_complete(original: Mesh, expected: PackedScene, submitted: Dictionary, mark: int, subject: String, default_camera_zoom: float, v_offset: float, grid_min_bounds: Vector3i, grid_max_bounds: Vector3i):
 	BackgroundMusic.fade_into("level_complete")
 	_original_mesh = original
 	_expected_grid = expected
 	var grid = _expected_grid.instantiate()
 	%expectedSubViewport.add_child(grid)
 	_submitted_grid = submitted
+	for i in range(grid_min_bounds.x, grid_max_bounds.x + 1):
+		for j in range(grid_min_bounds.y, grid_max_bounds.y + 1):
+			for k in range(grid_min_bounds.z, grid_max_bounds.z + 1):
+				submitted_grid.set_cell_item(Vector3i(i, j, k), _submitted_grid[str(i) + "," + str(j) + "," + str(k)])
+
 	expected_camera.fov = default_camera_zoom
 	submitted_camera.fov = default_camera_zoom
 	expected_camera.v_offset = v_offset

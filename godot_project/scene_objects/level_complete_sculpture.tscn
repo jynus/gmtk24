@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://blsv4kfkbe58v"]
+[gd_scene load_steps=9 format=3 uid="uid://blsv4kfkbe58v"]
 
 [ext_resource type="Script" path="res://scripts/level_complete_sculpture.gd" id="1_ddelq"]
 [ext_resource type="LabelSettings" uid="uid://tje0ygjwilaf" path="res://resources/small_title_label_settings.tres" id="2_frpri"]
-[ext_resource type="PackedScene" uid="uid://k7k0pnkmtut0" path="res://assets/3d/grids/tetris_t_shape.tscn" id="3_crxpa"]
 [ext_resource type="Texture2D" uid="uid://ciddnlhcacvjl" path="res://assets/sprites/stars_unfilled.webp" id="5_dmwbv"]
 [ext_resource type="Texture2D" uid="uid://d3ubas71s5u06" path="res://assets/sprites/stars_filled.webp" id="6_cabyp"]
 [ext_resource type="PackedScene" uid="uid://oq5258by1a1k" path="res://scene_objects/menu_button.tscn" id="7_ysiat"]
@@ -115,9 +114,6 @@ light_energy = 0.7
 omni_range = 248.067
 omni_attenuation = 0.13
 
-[node name="TetrisTShape2" parent="background/VBoxContainer/pauseMenu/SubViewportContainer2/submittedSubViewport" instance=ExtResource("3_crxpa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -512, 0, 0)
-
 [node name="submittedMarker" type="Marker3D" parent="background/VBoxContainer/pauseMenu/SubViewportContainer2/submittedSubViewport"]
 unique_name_in_owner = true
 transform = Transform3D(0.939693, -0.0593912, 0.336824, 0, 0.984808, 0.173648, -0.34202, -0.163176, 0.925416, -512, 0, 0)
@@ -129,6 +125,10 @@ attributes = SubResource("CameraAttributesPhysical_q1k0j")
 h_offset = -0.5
 v_offset = 2.0
 current = true
+
+[node name="submittedGrid" type="GridMap" parent="background/VBoxContainer/pauseMenu/SubViewportContainer2/submittedSubViewport"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -512, 0, 0)
 
 [node name="grade" type="TextureProgressBar" parent="background/VBoxContainer"]
 unique_name_in_owner = true

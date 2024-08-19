@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://b8e7afoujixnb"]
+[gd_scene load_steps=4 format=3 uid="uid://b8e7afoujixnb"]
 
 [ext_resource type="PackedScene" uid="uid://dbj0f5wflos1b" path="res://scene_objects/level_template_sculpture.tscn" id="1_28h5a"]
 [ext_resource type="ArrayMesh" uid="uid://fyma4wlyennc" path="res://assets/3d/sculptures/tetris_t_shape.obj" id="2_xce1d"]
+[ext_resource type="PackedScene" uid="uid://k7k0pnkmtut0" path="res://assets/3d/grids/tetris_t_shape.tscn" id="3_xdwon"]
 
 [node name="level" instance=ExtResource("1_28h5a")]
 subject = "Tetris T Shape"
 original_mesh = ExtResource("2_xce1d")
+expected_scene = ExtResource("3_xdwon")
 default_camera_zoom = 7.0
 
 [node name="originalCamera" parent="CanvasLayer/Layout/HBoxContainer/SubViewportContainer/originalSubViewport/originalScene/originalMarker" index="0"]
