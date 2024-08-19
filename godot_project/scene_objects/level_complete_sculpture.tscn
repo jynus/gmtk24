@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://blsv4kfkbe58v"]
+[gd_scene load_steps=10 format=3 uid="uid://blsv4kfkbe58v"]
 
 [ext_resource type="Script" path="res://scripts/level_complete_sculpture.gd" id="1_ddelq"]
 [ext_resource type="LabelSettings" uid="uid://tje0ygjwilaf" path="res://resources/small_title_label_settings.tres" id="2_frpri"]
+[ext_resource type="MeshLibrary" uid="uid://cmofoee8fucl3" path="res://resources/mesh_library.tres" id="3_2pt3e"]
 [ext_resource type="Texture2D" uid="uid://ciddnlhcacvjl" path="res://assets/sprites/stars_unfilled.webp" id="5_dmwbv"]
 [ext_resource type="Texture2D" uid="uid://d3ubas71s5u06" path="res://assets/sprites/stars_filled.webp" id="6_cabyp"]
 [ext_resource type="PackedScene" uid="uid://oq5258by1a1k" path="res://scene_objects/menu_button.tscn" id="7_ysiat"]
@@ -129,6 +130,7 @@ current = true
 [node name="submittedGrid" type="GridMap" parent="background/VBoxContainer/pauseMenu/SubViewportContainer2/submittedSubViewport"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -512, 0, 0)
+mesh_library = ExtResource("3_2pt3e")
 
 [node name="grade" type="TextureProgressBar" parent="background/VBoxContainer"]
 unique_name_in_owner = true

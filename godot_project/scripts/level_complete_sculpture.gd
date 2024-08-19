@@ -68,12 +68,14 @@ func level_complete(original: Mesh, expected: PackedScene, submitted: Dictionary
 	_original_mesh = original
 	_expected_grid = expected
 	var grid = _expected_grid.instantiate()
+	var item : int = 0
 	%expectedSubViewport.add_child(grid)
 	_submitted_grid = submitted
 	for i in range(grid_min_bounds.x, grid_max_bounds.x + 1):
 		for j in range(grid_min_bounds.y, grid_max_bounds.y + 1):
 			for k in range(grid_min_bounds.z, grid_max_bounds.z + 1):
-				submitted_grid.set_cell_item(Vector3i(i, j, k), _submitted_grid[str(i) + "," + str(j) + "," + str(k)])
+				item = _submitted_grid[str(i) + "," + str(j) + "," + str(k)]
+				submitted_grid.set_cell_item(Vector3i(i, j, k), item if item < 0 else item + 1)
 
 	expected_camera.fov = default_camera_zoom
 	submitted_camera.fov = default_camera_zoom
