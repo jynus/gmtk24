@@ -1,11 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://ckuh1dd2s7a7y"]
+[gd_scene load_steps=4 format=3 uid="uid://dsoxpdfitbdv1"]
 
-[ext_resource type="PackedScene" uid="uid://c6quisvt3ufal" path="res://scene_objects/level_template.tscn" id="1_ggndx"]
-[ext_resource type="Texture2D" uid="uid://cpdu7fcjj280x" path="res://assets/sprites/drawings/Flag of Texas.webp" id="2_eo41h"]
-[ext_resource type="Texture2D" uid="uid://dwvtweaffr1tv" path="res://assets/sprites/drawings/Flag of Texas_resized.webp" id="3_l4e6n"]
+[ext_resource type="PackedScene" uid="uid://c6quisvt3ufal" path="res://scene_objects/level_template.tscn" id="1_2d1dh"]
+[ext_resource type="Texture2D" uid="uid://c1h8m8cpnpobr" path="res://assets/sprites/drawings/Godot icon.webp" id="2_uqc3h"]
+[ext_resource type="Texture2D" uid="uid://dwrav5xe5nka4" path="res://assets/sprites/drawings/Godot icon_resized.webp" id="3_knepl"]
 
-[node name="level" instance=ExtResource("1_ggndx")]
-subject = "Flag of Texas"
-grid_size = Vector2i(9, 6)
-original_drawing = ExtResource("2_eo41h")
-expected_result = ExtResource("3_l4e6n")
+[node name="level" instance=ExtResource("1_2d1dh")]
+subject = "Godot icon"
+grid_size = Vector2i(25, 24)
+original_drawing = ExtResource("2_uqc3h")
+expected_result = ExtResource("3_knepl")

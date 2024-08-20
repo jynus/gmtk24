@@ -80,6 +80,8 @@ text = "[center][b]2d Drawings[/b][/center]
 [ul][color=pink]Left mouse click[/color]: add cube[/ul]
 [ul][color=pink]Right mouse click[/color]: erase cube[/ul]
 [ul][color=pink]Left mouse drag[/color]: rotate model[/ul]
+[ul][color=pink]Scroll wheel[/color]: zoom in/out[/ul]
+[ul][color=pink]Side buttons[/color]: pan camera[/ul]
 
 [center][b]Any screen, while playing[/b][/center]
 [ul][color=pink]ESC[/color]: pause menu to reset or leave the current game[/ul]

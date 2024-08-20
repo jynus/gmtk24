@@ -1,11 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://dhvk1d3gix11k"]
+[gd_scene load_steps=4 format=3 uid="uid://wwddsjpwb2bv"]
 
 [ext_resource type="PackedScene" uid="uid://c6quisvt3ufal" path="res://scene_objects/level_template.tscn" id="1_5laqp"]
-[ext_resource type="Texture2D" uid="uid://b1kaajqnd14w" path="res://assets/sprites/drawings/Stop sign.webp" id="2_1pnsu"]
-[ext_resource type="Texture2D" uid="uid://ctvxjijderkfp" path="res://assets/sprites/drawings/Stop sign_resized.webp" id="3_bt45k"]
+[ext_resource type="Texture2D" uid="uid://c8oswl0qm0tn2" path="res://assets/sprites/drawings/Piet Mondriaan, Composition II in Red, Blue, and Yellow.webp" id="2_wnph2"]
+[ext_resource type="Texture2D" uid="uid://ltiwy0svrv0k" path="res://assets/sprites/drawings/Piet Mondriaan, Composition II in Red, Blue, and Yellow_resized.webp" id="3_vxalr"]
 
 [node name="level" instance=ExtResource("1_5laqp")]
-subject = "Stop Sign"
-grid_size = Vector2i(19, 19)
-original_drawing = ExtResource("2_1pnsu")
-expected_result = ExtResource("3_bt45k")
+subject = "Composition with Red, Blue and Yellow"
+grid_size = Vector2i(20, 20)
+original_drawing = ExtResource("2_wnph2")
+expected_result = ExtResource("3_vxalr")
