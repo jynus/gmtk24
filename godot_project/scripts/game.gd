@@ -150,6 +150,7 @@ func level_complete() -> void:
 			img_submitted.set_pixel(x, y, p.color)
 	var submitted_result : Texture2D = ImageTexture.create_from_image(img_submitted)
 	var mark : int = grade_image(img_expected, img_submitted)
+	print_debug("mark: ", mark)
 	%LevelCompleteScreen.level_complete(original_drawing, expected_result, submitted_result, mark, subject)
 
 func color_difference(color_expected: Color, color_submitted: Color) -> float:

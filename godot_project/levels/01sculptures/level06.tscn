@@ -2,22 +2,22 @@
 
 [ext_resource type="PackedScene" uid="uid://dbj0f5wflos1b" path="res://scene_objects/level_template_sculpture.tscn" id="1_xxh5f"]
 [ext_resource type="ArrayMesh" uid="uid://xvy82mxmyb1d" path="res://assets/3d/sculptures/Statue_de_la_libert__Model_1.obj" id="2_7qb3f"]
-[ext_resource type="PackedScene" uid="uid://k7k0pnkmtut0" path="res://assets/3d/grids/tetris_t_shape.tscn" id="3_mahy3"]
+[ext_resource type="PackedScene" uid="uid://7qdgrvrnsynw" path="res://assets/3d/grids/statue_of_liberty.tscn" id="3_q8qba"]
 
 [node name="level" instance=ExtResource("1_xxh5f")]
 subject = "Statue of Liberty"
 original_mesh = ExtResource("2_7qb3f")
-expected_scene = ExtResource("3_mahy3")
+expected_scene = ExtResource("3_q8qba")
 default_camera_zoom = 55.0
 
 [node name="originalSubViewport" parent="CanvasLayer/Layout/HBoxContainer/SubViewportContainer" index="0"]
-size = Vector2i(750, 750)
+size = Vector2i(750, 759)
 
 [node name="originalCamera" parent="CanvasLayer/Layout/HBoxContainer/SubViewportContainer/originalSubViewport/originalScene/originalMarker" index="0"]
 v_offset = 25.0
 
 [node name="workingSubViewport" parent="CanvasLayer/Layout/HBoxContainer/SubViewportContainer2" index="0"]
-size = Vector2i(750, 750)
+size = Vector2i(750, 759)
 
 [node name="workingCamera" parent="CanvasLayer/Layout/HBoxContainer/SubViewportContainer2/workingSubViewport/workingScene/workingMarker" index="0"]
 v_offset = 25.0

@@ -11,7 +11,7 @@ expected_scene = ExtResource("3_sjsr7")
 default_camera_zoom = 13.0
 
 [node name="originalSubViewport" parent="CanvasLayer/Layout/HBoxContainer/SubViewportContainer" index="0"]
-size = Vector2i(750, 750)
+size = Vector2i(750, 759)
 
 [node name="workingSubViewport" parent="CanvasLayer/Layout/HBoxContainer/SubViewportContainer2" index="0"]
-size = Vector2i(750, 750)
+size = Vector2i(750, 759)

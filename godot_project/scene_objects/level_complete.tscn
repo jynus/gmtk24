@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://buqvr00anmyup"]
+[gd_scene load_steps=14 format=3 uid="uid://buqvr00anmyup"]
 
 [ext_resource type="Script" path="res://scripts/level_complete.gd" id="1_r8gc7"]
 [ext_resource type="LabelSettings" uid="uid://tje0ygjwilaf" path="res://resources/small_title_label_settings.tres" id="2_dmp87"]
@@ -8,6 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://cl5h54ouarkps" path="res://assets/sprites/drawings/Mona Lisa, by Leonardo da Vinci_resized_indexed.webp" id="4_r5s5y"]
 [ext_resource type="Texture2D" uid="uid://tq62h3qdi8o6" path="res://assets/sprites/drawings/Mona Lisa, by Leonardo da Vinci_resized.webp" id="4_r5vnf"]
 [ext_resource type="Texture2D" uid="uid://bwhbp3rxdiaox" path="res://assets/sprites/share.webp" id="8_3jwa3"]
+[ext_resource type="AudioStream" uid="uid://b2qimqv0cw1t6" path="res://assets/sfx/Notification, Attention, Short Phrase, Positive Achievement, Win, Video Game 05.ogg" id="9_exh43"]
+[ext_resource type="AudioStream" uid="uid://dwdchymwssfrb" path="res://assets/sfx/lose.ogg" id="10_b0n70"]
+[ext_resource type="AudioStream" uid="uid://bx654q2xltdwj" path="res://assets/sfx/nice.ogg" id="10_d1f10"]
+[ext_resource type="LabelSettings" uid="uid://c2qlpe3wovecb" path="res://resources/grade_comment_label_settings.tres" id="11_fjy77"]
+[ext_resource type="AudioStream" uid="uid://be2uwixl3k0dq" path="res://assets/sfx/bad.ogg" id="11_wn0fp"]
 
 [node name="LevelCompleteScreen" type="Control"]
 process_mode = 3
@@ -132,6 +137,38 @@ offset_bottom = 778.0
 texture_normal = ExtResource("8_3jwa3")
 ignore_texture_size = true
 stretch_mode = 0
+
+[node name="achievementSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("9_exh43")
+bus = &"sfx"
+
+[node name="niceSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("10_d1f10")
+bus = &"sfx"
+
+[node name="badSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("11_wn0fp")
+bus = &"sfx"
+
+[node name="loseSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("10_b0n70")
+bus = &"sfx"
+
+[node name="reactionText" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_top = 291.0
+offset_right = 1920.0
+offset_bottom = 658.0
+text = "Almost perfect!"
+label_settings = ExtResource("11_fjy77")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="background/VBoxContainer/nextLevelButton" to="." method="load_next_level"]
 [connection signal="pressed" from="background/VBoxContainer/HBoxContainer/mainMenuButton" to="." method="return_to_main_menu"]

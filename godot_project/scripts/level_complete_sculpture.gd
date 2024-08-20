@@ -2,6 +2,7 @@ extends Control
 
 const TWITTER_SHARE_URL = "https://x.com/intent/tweet?text="
 
+@export var stars_to_win : int = 4
 
 @onready var expected_marker: Marker3D = %expectedMarker
 @onready var submitted_marker: Marker3D = %submittedMarker
@@ -14,6 +15,11 @@ const TWITTER_SHARE_URL = "https://x.com/intent/tweet?text="
 @onready var replay_button: Button = %replayButton
 @onready var share_button: TextureButton = %ShareButton
 @onready var submitted_grid: GridMap = %submittedGrid
+@onready var achievement_sound: AudioStreamPlayer = %achievementSound
+@onready var nice_sound: AudioStreamPlayer = %niceSound
+@onready var bad_sound: AudioStreamPlayer = %badSound
+@onready var lose_sound: AudioStreamPlayer = %loseSound
+@onready var reaction_text: Label = %reactionText
 
 var _original_mesh : Mesh
 var _expected_grid : PackedScene
@@ -24,10 +30,70 @@ var _rotating : bool = false
 var _dragging : bool = false
 var _dragging_source : Vector2i
 var _subject : String
+var _won : bool
+var _mark : float
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
+func explain_grade(mark):
+	if mark < 1:
+		return "You didn't\neven try!"
+	elif _mark <= 1:
+		return "Sorry!"
+	elif _mark <= 2:
+		return "Not enough!"
+	elif _mark <= 3:
+		return "Almost!"
+	elif _mark <= 4:
+		return "Nice!"
+	elif _mark <= 5:
+		return "Well done!"
+	elif _mark <= 6:
+		return "Ok!"
+	elif _mark <= 7:
+		return "Great!"
+	elif _mark <= 8:
+		return "Wow!"
+	elif _mark <= 9:
+		return "Almost perfect!"
+	else:
+		return "Perfect!"
+
+func show_comment():
+	reaction_text.text = explain_grade(_mark)
+	reaction_text.self_modulate = Color.TRANSPARENT
+	reaction_text.show()
+	var tween : Tween = create_tween()
+	tween.tween_property(reaction_text, "self_modulate", Color.WHITE, 0.5)
+	await tween.finished
+	await get_tree().create_timer(2).timeout
+	tween = create_tween()
+	tween.tween_property(reaction_text, "self_modulate", Color.TRANSPARENT, 0.5)
+	await tween.finished
+	reaction_text.hide()
+
+func animate_stars():
+	var tween : Tween = create_tween()
+	grade.value = 0
+	tween.tween_property(grade, "value", _mark, 3)
+	await tween.finished
+
+func win_animation():
+	_won = true
+	achievement_sound.play()
+	replay_button.text = "Replay level again"
+	await animate_stars()
+	enable_next_level_button()
+	nice_sound.play()
+	show_comment()
+
+func lose_animation():
+	_won = false
+	lose_sound.play()
+	next_level_button.hide()
+	replay_button.text = "Retry level"
+	await animate_stars()
+	enable_next_level_button()
+	bad_sound.play()
+	show_comment()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -86,9 +152,14 @@ func level_complete(original: Mesh, expected: PackedScene, submitted: Dictionary
 	submitted_camera.fov = default_camera_zoom
 	expected_camera.v_offset = v_offset
 	submitted_camera.v_offset = v_offset
-	grade.value = mark
+	_mark = mark
 	_subject = subject
 	_rotating = true
+
+	if mark >= stars_to_win:
+		win_animation()
+	else:
+		lose_animation()
 
 	if Input.get_connected_joypads().size() > 0:
 		next_level_button.grab_focus()

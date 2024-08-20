@@ -144,7 +144,7 @@ stretch = true
 
 [node name="originalSubViewport" type="SubViewport" parent="CanvasLayer/Layout/HBoxContainer/SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(750, 759)
+size = Vector2i(750, 750)
 size_2d_override = Vector2i(650, 700)
 render_target_update_mode = 4
 
@@ -198,7 +198,7 @@ stretch = true
 [node name="workingSubViewport" type="SubViewport" parent="CanvasLayer/Layout/HBoxContainer/SubViewportContainer2"]
 unique_name_in_owner = true
 handle_input_locally = false
-size = Vector2i(750, 759)
+size = Vector2i(750, 750)
 size_2d_override = Vector2i(650, 700)
 render_target_update_mode = 4
 

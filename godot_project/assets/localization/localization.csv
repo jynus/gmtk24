@@ -1,6 +1,6 @@
 keys,en,es
-GameTitle,Scale It Down!,!Escálalo pa bajo!
-VersionString,v0.0.3,v0.0.3
+GameTitle,Scale It Down!,¡Escálalo pa bajo!
+VersionString,v0.0.4,v0.0.4
 Play,Play,Jugar
 Settings,Settings,Configuración
 Credits,Credits,Créditos
@@ -8,11 +8,15 @@ Exit,Exit,Salir
 Language,Language,Idioma
 Music,Music,Música
 SFX,SFX,Efectos
+How to play,How to play,Cómo jugar
 Full screen,Full screen,Pantalla completa
+How To Play,How To Play,Cómo jugar
 Done,Done,Hecho
 Level select,Level select,Seleción de nivel
 Back to main menu,Back to main menu,Menú principal
-Back to level selection,Back to level selection,Volver a la selección de nivel
+Back to level selection,Back to level selection,Volver al menú
+Replay level again,Replay level again,Volver a jugar el nivel
+Retry level,Retry level,Reintentar el nivel
 Return to game,Return to game,Volver al juego
 Pause,Pause,Pausa
 on,on,sí
@@ -21,8 +25,8 @@ Level complete!,Level complete!,¡Nivel completado!
 Next level,Next level,Siguiente nivel
 Replay,Replay,Volver a jugar
 Submit,Submit,Enviar
-drawings,drawings,dibujos
-sculptures,sculptures,esculturas
+drawings,"textures (1/2)","texturas (1/2)"
+sculptures,"3d models (2/2)","modelos 3d (2/2)"
 Expected:,Expected:,Se esperaba:
 "Draw: ","Draw: ","Dibuja: "
 Lime circle,Lime circle,un círculo de color lima

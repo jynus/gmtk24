@@ -2,16 +2,16 @@
 
 [ext_resource type="PackedScene" uid="uid://dbj0f5wflos1b" path="res://scene_objects/level_template_sculpture.tscn" id="1_p5ahp"]
 [ext_resource type="ArrayMesh" uid="uid://dv4ksslheci4m" path="res://assets/3d/sculptures/teapot.obj" id="2_1lyyw"]
-[ext_resource type="PackedScene" uid="uid://dfoi1vupwaetu" path="res://assets/3d/grids/chair.tscn" id="3_kd855"]
+[ext_resource type="PackedScene" uid="uid://d3mc0j4kfjqxj" path="res://assets/3d/grids/teapot.tscn" id="3_6ng1e"]
 
 [node name="level" instance=ExtResource("1_p5ahp")]
 subject = "Teapot"
 original_mesh = ExtResource("2_1lyyw")
-expected_scene = ExtResource("3_kd855")
+expected_scene = ExtResource("3_6ng1e")
 default_camera_zoom = 35.0
 
 [node name="originalSubViewport" parent="CanvasLayer/Layout/HBoxContainer/SubViewportContainer" index="0"]
-size = Vector2i(750, 750)
+size = Vector2i(750, 759)
 
 [node name="workingSubViewport" parent="CanvasLayer/Layout/HBoxContainer/SubViewportContainer2" index="0"]
-size = Vector2i(750, 750)
+size = Vector2i(750, 759)
