@@ -77,17 +77,45 @@ theme_override_font_sizes/bold_font_size = 60
 bbcode_enabled = true
 text = "[center]Congratulations!
 
-Thanks to your great efforts optimizing textures and 3d models, the videogame project size has been shrinked down to only 455 GB!
+Thanks to your great efforts optimizing textures and 3d models, the videogame project size has been shrinked down to a mere 455 GB!
 
-The project, however, could not be shipped in time due to inept management. It was cancelled and all workers were layed off :-([/center]"
+The project, however, could not be shipped in time due to management issues. Despite eveyone giving it a 200%, the project went over budget and milestones were not met.
+
+The project was swiftly cancelled by the publisher and all developers were layed off, including yourself :-(
+
+Have a nice day![/center]"
+scroll_following = true
 
 [node name="rightMargin" type="MarginContainer" parent="menuContainer/optionsContainer"]
 custom_minimum_size = Vector2(200, 600)
 layout_mode = 2
 
-[node name="backButton" type="Button" parent="menuContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="menuContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="creditsButton" type="Button" parent="menuContainer/HBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(800, 75)
+custom_minimum_size = Vector2(650, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+focus_next = NodePath("../PlayButton")
+focus_previous = NodePath("../CreditsButton")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_43x4g")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxFlat_285bg")
+theme_override_styles/disabled = ExtResource("6_jwgqf")
+theme_override_styles/hover = ExtResource("7_x6ndy")
+theme_override_styles/pressed = ExtResource("8_jdo5v")
+theme_override_styles/normal = ExtResource("6_jwgqf")
+text = "Credits"
+
+[node name="backButton" type="Button" parent="menuContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(650, 75)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 10
@@ -107,4 +135,5 @@ text = "Back to main menu"
 unique_name_in_owner = true
 stream = ExtResource("9_kqugs")
 
-[connection signal="pressed" from="menuContainer/backButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="menuContainer/HBoxContainer/creditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="menuContainer/HBoxContainer/backButton" to="." method="_on_back_button_pressed"]

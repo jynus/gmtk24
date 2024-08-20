@@ -14,6 +14,7 @@ var playlist : Dictionary = {
 	"level_complete": preload("res://assets/music/ES_Rise and Rise - Falcon Dives.ogg"),
 	"lost": preload("res://assets/music/ES_Love and Rewind (Instrumental Version) - I'MIN.ogg"),
 	"win": preload("res://assets/music/ES_Just The Way You Are (Instrumental Version) - Craig Reever.ogg"),
+	"intro": preload("res://assets/music/ES_Infatuation (Instrumental Version) - I'MIN.ogg"),
 }
 var _current_song : String
 @export var current_song : String :

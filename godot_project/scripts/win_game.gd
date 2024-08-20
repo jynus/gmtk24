@@ -4,6 +4,14 @@ extends Node2D
 @onready var back_button: Button = %backButton
 @onready var you_won_text: RichTextLabel = %youWonText
 
+var _tween : Tween
+
+func _unhandled_input(event):
+	if event.is_action_pressed("ui_cancel"):
+		_tween.stop()
+		you_won_text.visible_ratio = 1
+		typing_sound.stop()
+
 func _ready() -> void:
 	BackgroundMusic.fade_into("win")
 	if Input.get_connected_joypads().size() > 0:
@@ -11,9 +19,9 @@ func _ready() -> void:
 
 	you_won_text.visible_ratio = 0
 	typing_sound.play()
-	var tween : Tween = create_tween()
-	tween.finished.connect(on_animation_finish)
-	tween.tween_property(you_won_text, "visible_ratio", 1, 20)
+	_tween = create_tween()
+	_tween.finished.connect(on_animation_finish)
+	_tween.tween_property(you_won_text, "visible_ratio", 1, 20)
 
 func on_animation_finish():
 	typing_sound.stop()
@@ -21,3 +29,8 @@ func on_animation_finish():
 func _on_back_button_pressed() -> void:
 	Fx.click.play()
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+
+
+func _on_credits_button_pressed() -> void:
+	Fx.click.play()
+	get_tree().change_scene_to_file("res://scenes/credits.tscn")

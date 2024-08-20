@@ -80,7 +80,7 @@ stretch = true
 [node name="expectedSubViewport" type="SubViewport" parent="background/VBoxContainer/pauseMenu/SubViewportContainer"]
 unique_name_in_owner = true
 handle_input_locally = false
-size = Vector2i(960, 550)
+size = Vector2i(2, 550)
 render_target_update_mode = 4
 
 [node name="expectedMarker" type="Marker3D" parent="background/VBoxContainer/pauseMenu/SubViewportContainer/expectedSubViewport"]
@@ -103,7 +103,7 @@ stretch = true
 [node name="submittedSubViewport" type="SubViewport" parent="background/VBoxContainer/pauseMenu/SubViewportContainer2"]
 unique_name_in_owner = true
 handle_input_locally = false
-size = Vector2i(960, 550)
+size = Vector2i(2, 550)
 render_target_update_mode = 4
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="background/VBoxContainer/pauseMenu/SubViewportContainer2/submittedSubViewport"]
@@ -210,6 +210,7 @@ bus = &"sfx"
 [node name="reactionText" type="Label" parent="."]
 unique_name_in_owner = true
 visible = false
+layout_mode = 0
 offset_top = 291.0
 offset_right = 1920.0
 offset_bottom = 658.0

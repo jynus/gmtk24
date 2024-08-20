@@ -81,6 +81,8 @@ text = "[center][b]2d Drawings[/b][/center]
 [ul][color=pink]Right mouse click[/color]: erase cube[/ul]
 [ul][color=pink]Left mouse drag[/color]: rotate model[/ul]
 
+[center][b]Any screen, while playing[/b][/center]
+[ul][color=pink]ESC[/color]: pause menu to reset or leave the current game[/ul]
 "
 
 [node name="rightMargin" type="MarginContainer" parent="menuContainer/optionsContainer"]

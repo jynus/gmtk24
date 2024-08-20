@@ -78,6 +78,9 @@ func _ready():
 	if Input.get_connected_joypads().size() > 0:
 		back_button.grab_focus()
 	
+	if BackgroundMusic.current_song != "menu":
+		BackgroundMusic.fade_in("menu", 1)
+
 	# represent world levels
 	if levels.keys().find(Globals.current_world) == -1:
 		Globals.current_world = levels.keys()[0]
