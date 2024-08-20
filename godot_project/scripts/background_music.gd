@@ -13,7 +13,7 @@ var playlist : Dictionary = {
 	"game2": preload("res://assets/music/ES_Midnight Messages - Rebecca Mardal.ogg"),
 	"level_complete": preload("res://assets/music/ES_Rise and Rise - Falcon Dives.ogg"),
 	"lost": preload("res://assets/music/ES_Love and Rewind (Instrumental Version) - I'MIN.ogg"),
-	"win": preload("res://assets/music/ES_Rise and Rise - Falcon Dives.ogg"),
+	"win": preload("res://assets/music/ES_Just The Way You Are (Instrumental Version) - Craig Reever.ogg"),
 }
 var _current_song : String
 @export var current_song : String :

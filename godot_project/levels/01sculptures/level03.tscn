@@ -10,8 +10,14 @@ original_mesh = ExtResource("2_ktjfm")
 expected_scene = ExtResource("3_llv5a")
 default_camera_zoom = 25.0
 
+[node name="originalSubViewport" parent="CanvasLayer/Layout/HBoxContainer/SubViewportContainer" index="0"]
+size = Vector2i(750, 750)
+
 [node name="originalCamera" parent="CanvasLayer/Layout/HBoxContainer/SubViewportContainer/originalSubViewport/originalScene/originalMarker" index="0"]
 v_offset = 10.0
+
+[node name="workingSubViewport" parent="CanvasLayer/Layout/HBoxContainer/SubViewportContainer2" index="0"]
+size = Vector2i(750, 750)
 
 [node name="workingCamera" parent="CanvasLayer/Layout/HBoxContainer/SubViewportContainer2/workingSubViewport/workingScene/workingMarker" index="0"]
 v_offset = 10.0

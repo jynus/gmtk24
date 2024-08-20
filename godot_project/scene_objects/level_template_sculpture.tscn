@@ -100,6 +100,11 @@ environment = SubResource("Environment_t2g0o")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="background" type="ColorRect" parent="CanvasLayer"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.113725, 0.133333, 0.160784, 1)
+
 [node name="Layout" type="VBoxContainer" parent="CanvasLayer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(1920, 1080)

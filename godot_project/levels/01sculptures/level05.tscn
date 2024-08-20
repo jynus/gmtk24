@@ -9,3 +9,9 @@ subject = "Teapot"
 original_mesh = ExtResource("2_1lyyw")
 expected_scene = ExtResource("3_kd855")
 default_camera_zoom = 35.0
+
+[node name="originalSubViewport" parent="CanvasLayer/Layout/HBoxContainer/SubViewportContainer" index="0"]
+size = Vector2i(750, 750)
+
+[node name="workingSubViewport" parent="CanvasLayer/Layout/HBoxContainer/SubViewportContainer2" index="0"]
+size = Vector2i(750, 750)

@@ -7,5 +7,11 @@
 subject = "Ramp"
 expected_scene = ExtResource("2_e3uf5")
 
+[node name="originalSubViewport" parent="CanvasLayer/Layout/HBoxContainer/SubViewportContainer" index="0"]
+size = Vector2i(750, 750)
+
+[node name="workingSubViewport" parent="CanvasLayer/Layout/HBoxContainer/SubViewportContainer2" index="0"]
+size = Vector2i(750, 750)
+
 [node name="raystart" parent="." index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 512, 0, 0)

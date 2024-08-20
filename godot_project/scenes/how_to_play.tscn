@@ -29,7 +29,7 @@ expand_margin_bottom = 2.0
 script = ExtResource("1_pevma")
 
 [node name="backgroudMenu" parent="." instance=ExtResource("2_03hht")]
-modulate = Color(0.878451, 0.66241, 0, 1)
+modulate = Color(1, 0.442395, 0.29116, 1)
 
 [node name="menuContainer" type="VBoxContainer" parent="."]
 offset_right = 1920.0
