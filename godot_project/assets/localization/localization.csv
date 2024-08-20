@@ -1,6 +1,6 @@
 keys,en,es
-GameTitle,Scale It Down,Escálalo
-VersionString,v0.0.2,v0.0.2
+GameTitle,Scale It Down!,!Escálalo pa bajo!
+VersionString,v0.0.3,v0.0.3
 Play,Play,Jugar
 Settings,Settings,Configuración
 Credits,Credits,Créditos
@@ -12,6 +12,7 @@ Full screen,Full screen,Pantalla completa
 Done,Done,Hecho
 Level select,Level select,Seleción de nivel
 Back to main menu,Back to main menu,Menú principal
+Back to level selection,Back to level selection,Volver a la selección de nivel
 Return to game,Return to game,Volver al juego
 Pause,Pause,Pausa
 on,on,sí
@@ -23,11 +24,27 @@ Submit,Submit,Enviar
 drawings,drawings,dibujos
 sculptures,sculptures,esculturas
 Expected:,Expected:,Se esperaba:
-Draw: ,Draw: ,Dibuja: 
+"Draw: ","Draw: ","Dibuja: "
+Lime circle,Lime circle,un círculo de color lima
 Flag of France,Flag of France,la bandera de Francia
+Stop Sign,Stop Sign,una señal de stop
+Godot icon,Godot icon,el logo de Godot
+Flag of the European Union,Flag of the European Union,la bandera de la Unión Europea
+Flag of Ukraine,Flag of Ukraine,la bandera de Ukrania
+Flag of Texas,Flag of Texas,la bandera de Texas
+Starry Night,Starry Night,Noche estrellada
+Composition with Red, Blue and Yellow,Composition with Red, Blue and Yellow,la Composición en Rojo, Azul y Amarillo
 Mona Lisa,Mona Lisa,la Mona Lisa
+Tetris T Shape,Tetris T Shape,la pieza T del Tetris
+Ramp,Ramp,una rampa
+Chair,Chair,una silla
+Sphere,Sphere,una esfera
+Teapot,Teapot,una tetera
+Statue of Liberty,Statue of Liberty,la Estatua de la Libertad
 Submitted:,Submitted:,Se envió:
-"Look at this beatiful image I painted with the #ScaleItDown game of a %s. Play at https://jynus.itch.io/scale-it-down","Look at this beatiful image I painted with the #ScaleItDown game of a %s. Play at https://jynus.itch.io/scale-it-down","Mira esta bonita imagen que he pintado con el juego #ScaleItDown de %s. Juega en https://jynus.itch.io/scale-it-down"
+"Look at this beautiful image I painted with the #ScaleItDown game of a %s. Play at https://jynus.itch.io/scale-it-down","Look at this beautiful image I painted with the #ScaleItDown game of a %s. Play at https://jynus.itch.io/scale-it-down","Mira esta bonita imagen que he pintado con el juego #ScaleItDown de %s. Juega en https://jynus.itch.io/scale-it-down"
 "Please Confirm...","Please Confirm...","Por favor, confirma..."
+"Look at this beautiful 3d model I carved with the #ScaleItDown game of a %s. Play at https://jynus.itch.io/scale-it-down","Look at this beautiful 3d model I carved with the #ScaleItDown game of a %s. Play at https://jynus.itch.io/scale-it-down","Mira este bonito modelo 3d que he esculpido con el juego #ScaleItDown de %s. Juega en https://jynus.itch.io/scale-it-down"
 "Are you sure you want to submit the drawing?\n\nSome pixels still have the default color!","Are you sure you want to submit the drawing?\n\nSome pixels still have the default color!","¿Seguro que quieres enviar el dibujo?\n\n¡Algunos píxeles todavía tienen el color por defecto!"
-"[center][b]Design & programming[/b]:\n\nJaime Crespo \"jynus\"\n\n * Made with Godot 4 in 4 days for the Game Jam *[/center]","[center][b]Design & programming[/b]:\n\nJaime Crespo \"jynus\"\n\n * Made with Godot 4.3 in 4 days for the Game Jam *[/center]","[center][b]Diseño y programación[/b]:\n\nJaime Crespo \"jynus\"\n\n * Hecho con Godot 4.3 en 4 días para la GMTK Game Jame 2024 *[/center]"
+"Design & programming","Design & programming","Diseño y programación"
+"* Made with Godot 4 in 4 days for the Game Jam *","* Made with Godot 4.3 in 4 days for the GMTK Game Jam 2024 *","* Hecho con Godot 4.3 en 4 días para la GMTK Game Jam 2024 *"

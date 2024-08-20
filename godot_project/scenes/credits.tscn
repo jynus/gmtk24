@@ -71,6 +71,7 @@ layout_mode = 2
 size_flags_vertical = 0
 
 [node name="creditsText" type="RichTextLabel" parent="menuContainer/optionsContainer/creditsContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(1100, 600)
 layout_mode = 2
 size_flags_horizontal = 4

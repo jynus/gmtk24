@@ -6,6 +6,10 @@ var pixel = preload("res://scene_objects/pixel.tscn")
 @onready var color_picker: ColorPicker = %ColorPicker
 @onready var submit_button: Button = %submitButton
 @onready var title: Label = %Title
+@onready var draw_sound: AudioStreamPlayer = %DrawSound
+@onready var erase_sound: AudioStreamPlayer = %EraseSound
+@onready var attention_sound: AudioStreamPlayer = %AttentionSound
+@onready var fill_sound: AudioStreamPlayer = %FillSound
 
 @export var subject: String
 @export var grid_size : Vector2i = Vector2i(1, 1)
@@ -61,10 +65,15 @@ func hover_off(button):
 		_current_pixel = null
 
 func paint(button):
+	erase_sound.stop()
+	draw_sound.play()
 	print_debug(button.location)
 	button.color = _current_color
+	
 
 func erase(button):
+	draw_sound.stop()
+	erase_sound.play()
 	print_debug(button.location)
 	button.color = default_grid_color
 
@@ -80,14 +89,16 @@ func recursive_fill(p: Pixel, color_to_remove: Color, color_to_set: Color):
 		var coords : Vector2i = p.location + next_step
 		print_debug("is this pixel ok? ", coords)
 		if coords.x < 0 or coords.y < 0 or coords.x >= grid_size.x or coords.y >= grid_size.y:
-			return
+			continue
 		recursive_fill(_grid[coords.y][coords.x], color_to_remove, color_to_set)
 
 func fill_from(p: Pixel):
 	print_debug("filling from ", p.location)
-	# Do nothing is the color is the same as the current one
+	# Do nothing if the color is the same as the current one
 	if p.color == _current_color:
+		attention_sound.play()
 		return
+	fill_sound.play()
 	recursive_fill(p, p.color, _current_color)
 
 func _process(_delta: float) -> void:
@@ -118,9 +129,12 @@ func _process(_delta: float) -> void:
 		_erasing = false
 
 func _on_submit_button_pressed() -> void:
+	draw_sound.stop()
+	erase_sound.stop()
 	Fx.click.play()
 	for button: Pixel in canvas.get_children():
 		if button.color == default_grid_color:
+			attention_sound.play()
 			print_debug("Are you sure? This button is still in the default color: ", str(button.location))
 			%ConfirmationDialog.show()
 			return

@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://d4hj47ygwwwl8" path="res://assets/sprites/drawings/Flag of Ukraine._resized.webp" id="3_s8pl8"]
 
 [node name="level" instance=ExtResource("1_r1lpa")]
+subject = "Flag of Ukraine"
 grid_size = Vector2i(3, 2)
 original_drawing = ExtResource("2_k5b5u")
 expected_result = ExtResource("3_s8pl8")

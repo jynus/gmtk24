@@ -29,6 +29,10 @@ func show_credits():
 	"""Show the credits screen"""
 	get_tree().change_scene_to_file("res://scenes/credits.tscn")
 
+func show_how_to_play_screen():
+	"""Show the instructions and key bindings"""
+	get_tree().change_scene_to_file("res://scenes/how_to_play.tscn")
+	
 func _on_settings_button_pressed():
 	"""Show the settings menu"""
 	Fx.click.play()
@@ -54,3 +58,8 @@ func _on_exit_button_pressed():
 func _on_play_button_pressed():
 	Fx.click.play()
 	start_new_game()
+
+
+func _on_how_to_play_button_pressed() -> void:
+	Fx.click.play()
+	show_how_to_play_screen()

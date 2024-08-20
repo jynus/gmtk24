@@ -21,12 +21,12 @@ func _process(_delta: float) -> void:
 	pass
 
 func level_complete(_original: Texture2D, expected: Texture2D, submitted: Texture2D, mark: int, subject: String):
+	BackgroundMusic.fade_into("level_complete", 4)
 	expected_image.texture = expected
 	submitted_image.texture = submitted
 	grade.value = mark
 	_subject = subject
 
-	BackgroundMusic.fade_into("level_complete")
 	if Input.get_connected_joypads().size() > 0:
 		next_level_button.grab_focus()
 	get_tree().create_timer(1).timeout.connect(enable_next_level_button)
@@ -63,7 +63,7 @@ func _on_share_button_pressed() -> void:
 	else:
 		img.save_png("user://export.png")
 		OS.shell_open(OS.get_user_data_dir() + "/export.png")
-	var url = TWITTER_SHARE_URL + (tr("Look at this beatiful image I painted with the #ScaleItDown game of a %s. Play at https://jynus.itch.io/scale-it-down") % tr(_subject)).uri_encode()
+	var url = TWITTER_SHARE_URL + (tr("Look at this beautiful image I painted with the #ScaleItDown game of a %s. Play at https://jynus.itch.io/scale-it-down") % tr(_subject)).uri_encode()
 	OS.shell_open(url)
 
 func _on_share_button_entered() -> void:

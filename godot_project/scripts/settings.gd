@@ -6,6 +6,7 @@ class_name UserSettings extends Node2D
 @onready var sfx_volume = %sfxVolume
 @onready var language_option = %LanguageOption
 @onready var vsync_checkbox: CheckBox = %vsyncCheckbox
+@onready var sample_fx: AudioStreamPlayer = %sampleFX
 
 @export var default_volume : float = 0.4
 
@@ -117,7 +118,7 @@ func _on_music_volume_value_changed(value):
 
 func _on_sfx_volume_value_changed(value):
 	apply_volume("sfx", value)
-	Fx.click.play()
+	sample_fx.play()
 
 func set_language(lang: String):
 	TranslationServer.set_locale(lang)

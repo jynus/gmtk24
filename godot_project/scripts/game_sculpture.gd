@@ -12,6 +12,10 @@ extends Node3D
 @onready var working_camera: Camera3D = %workingCamera
 @onready var working_sub_viewport: SubViewport = %workingSubViewport
 @onready var grid_map: GridMap = %GridMap
+@onready var add_block_sound: AudioStreamPlayer = %AddBlockSound
+@onready var remove_block_sound: AudioStreamPlayer = %RemoveBlockSound
+@onready var attention_sound: AudioStreamPlayer = %AttentionSound
+@onready var rotate_sound: AudioStreamPlayer = %RotateSound
 
 var _dragging = false
 var _carving = false
@@ -53,6 +57,7 @@ func remove_block():
 	var ray_result: Dictionary= collide()
 	print_debug("Clicked: ", ray_result)
 	if "position" in ray_result:
+		remove_block_sound.play()
 		grid_map.set_cell_item(grid_map.local_to_map(grid_map.to_local(ray_result.position)), -1)
 
 func add_block():
@@ -67,10 +72,12 @@ func add_block():
 		   grid_index.y <= _grid_max_bounds.y and \
 		   grid_index.z >= _grid_min_bounds.z and \
 		   grid_index.z <= _grid_max_bounds.z:
+			add_block_sound.play()
 			grid_map.set_cell_item(grid_index, 0)
 			return true
+		attention_sound.play()
 	return false
-	
+
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("erase"):
 		remove_block()
@@ -109,31 +116,38 @@ func _process(_delta: float) -> void:
 			_carving_source = mouse_pos
 
 func rotate_models_up(degrees: float):
+	rotate_sound.play()
 	original_marker.rotate_y(deg_to_rad(degrees))
 	working_marker.rotation = original_marker.rotation
 
 func rotate_models_left(degrees: float):
 	if original_marker.global_rotation_degrees.x > 85 and degrees > 0:
+		attention_sound.play()
 		return
 	if original_marker.global_rotation_degrees.x < -85 and degrees < 0:
+		attention_sound.play()
 		return
+	rotate_sound.play()
 	original_marker.rotate_object_local(Vector3.MODEL_LEFT, deg_to_rad(degrees))
 	original_marker.global_rotation_degrees.z = 0
 	working_marker.rotation = original_marker.rotation
 	
 func zoom_in():
+	rotate_sound.play()
 	original_camera.fov += 3
 	if original_camera.fov > 100:
 		original_camera.fov = 100
 	working_camera.fov = original_camera.fov
 
 func zoom_out():
+	rotate_sound.play()
 	original_camera.fov -= 3
 	if original_camera.fov < 1:
 		original_camera.fov = 1
 	working_camera.fov = original_camera.fov
 
 func move_down(offset: int = 2):
+	rotate_sound.play()
 	original_camera.v_offset += offset
 	if original_camera.v_offset < -100:
 		original_camera.v_offset = -100
@@ -145,6 +159,7 @@ func move_up(offset: int = 2):
 	move_down(-offset)
 
 func move_left(offset: int = 2):
+	rotate_sound.play()
 	original_camera.h_offset += offset
 	if original_camera.h_offset < -25:
 		original_camera.h_offset = -25
@@ -169,6 +184,10 @@ func _on_down_button_pressed() -> void:
 
 
 func _on_submit_button_pressed() -> void:
+	add_block_sound.stop()
+	rotate_sound.stop()
+	remove_block_sound.stop()
+	attention_sound.stop()
 	Fx.click.play()
 	var sculpture : Dictionary = {}
 	var reference : Dictionary = {}

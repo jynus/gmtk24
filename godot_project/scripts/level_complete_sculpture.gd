@@ -63,19 +63,24 @@ func rotate_models_left(degrees: float):
 	expected_marker.global_rotation_degrees.z = 0
 	submitted_marker.rotation = expected_marker.rotation
 
-func level_complete(original: Mesh, expected: PackedScene, submitted: Dictionary, mark: int, subject: String, default_camera_zoom: float, v_offset: float, grid_min_bounds: Vector3i, grid_max_bounds: Vector3i):
-	BackgroundMusic.fade_into("level_complete")
-	_original_mesh = original
-	_expected_grid = expected
+func display_sculptures(grid_min_bounds: Vector3i, grid_max_bounds: Vector3i):
+	# expected
 	var grid = _expected_grid.instantiate()
+	# submitted
 	var item : int = 0
 	%expectedSubViewport.add_child(grid)
-	_submitted_grid = submitted
 	for i in range(grid_min_bounds.x, grid_max_bounds.x + 1):
 		for j in range(grid_min_bounds.y, grid_max_bounds.y + 1):
 			for k in range(grid_min_bounds.z, grid_max_bounds.z + 1):
 				item = _submitted_grid[str(i) + "," + str(j) + "," + str(k)]
 				submitted_grid.set_cell_item(Vector3i(i, j, k), item if item < 0 else item + 1)
+
+func level_complete(original: Mesh, expected: PackedScene, submitted: Dictionary, mark: int, subject: String, default_camera_zoom: float, v_offset: float, grid_min_bounds: Vector3i, grid_max_bounds: Vector3i):
+	BackgroundMusic.fade_into("level_complete", 4)
+	_original_mesh = original
+	_expected_grid = expected
+	_submitted_grid = submitted
+	display_sculptures(grid_min_bounds, grid_max_bounds)
 
 	expected_camera.fov = default_camera_zoom
 	submitted_camera.fov = default_camera_zoom
@@ -131,7 +136,7 @@ func _on_share_button_pressed() -> void:
 	else:
 		img.save_png("user://export.png")
 		OS.shell_open(OS.get_user_data_dir() + "/export.png")
-	var url = TWITTER_SHARE_URL + (tr("Look at this beatiful 3d model I carved with the #ScaleItDown game of a %s. Play at https://jynus.itch.io/scale-it-down") % tr(_subject)).uri_encode()
+	var url = TWITTER_SHARE_URL + (tr("Look at this beautiful 3d model I carved with the #ScaleItDown game of a %s. Play at https://jynus.itch.io/scale-it-down") % tr(_subject)).uri_encode()
 	OS.shell_open(url)
 	pass
 

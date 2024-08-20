@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/fx.gd" id="1_l6i5p"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_au0o3"]
-random_pitch = 3.0
+random_pitch = 2.0
 random_volume_offset_db = 3.0
 streams_count = 1
 stream_0/stream = ExtResource("1_id4ng")

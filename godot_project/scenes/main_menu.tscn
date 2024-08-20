@@ -67,7 +67,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="topMargin" type="MarginContainer" parent="menuContainer/optionsContainer/buttonsContainer"]
-custom_minimum_size = Vector2(0, 75)
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 
 [node name="PlayButton" type="Button" parent="menuContainer/optionsContainer/buttonsContainer"]
@@ -75,7 +75,7 @@ texture_filter = 3
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 size_flags_vertical = 0
-focus_next = NodePath("../SettingsButton")
+focus_next = NodePath("../HowToPlayButton")
 focus_previous = NodePath("../ExitButton")
 theme_override_fonts/font = ExtResource("4_wtatl")
 theme_override_font_sizes/font_size = 75
@@ -86,8 +86,27 @@ theme_override_styles/pressed = ExtResource("5_hqrxp")
 theme_override_styles/normal = ExtResource("3_b61lj")
 text = "Play"
 
-[node name="margin1" type="MarginContainer" parent="menuContainer/optionsContainer/buttonsContainer"]
+[node name="margin0" type="MarginContainer" parent="menuContainer/optionsContainer/buttonsContainer"]
 custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="HowToPlayButton" type="Button" parent="menuContainer/optionsContainer/buttonsContainer"]
+custom_minimum_size = Vector2(25, 100)
+layout_mode = 2
+size_flags_vertical = 0
+focus_next = NodePath("../CreditsButton")
+focus_previous = NodePath("../PlayButton")
+theme_override_fonts/font = ExtResource("4_wtatl")
+theme_override_font_sizes/font_size = 45
+theme_override_styles/focus = SubResource("StyleBoxFlat_eypyq")
+theme_override_styles/disabled = ExtResource("3_b61lj")
+theme_override_styles/hover = ExtResource("4_kcoe6")
+theme_override_styles/pressed = ExtResource("5_hqrxp")
+theme_override_styles/normal = ExtResource("3_b61lj")
+text = "How to play"
+
+[node name="margin1" type="MarginContainer" parent="menuContainer/optionsContainer/buttonsContainer"]
+custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
 [node name="SettingsButton" type="Button" parent="menuContainer/optionsContainer/buttonsContainer"]
@@ -114,7 +133,7 @@ custom_minimum_size = Vector2(25, 100)
 layout_mode = 2
 size_flags_vertical = 0
 focus_next = NodePath("../ExitButton")
-focus_previous = NodePath("../SettingsButton")
+focus_previous = NodePath("../HowToPlayButton")
 theme_override_fonts/font = ExtResource("4_wtatl")
 theme_override_font_sizes/font_size = 45
 theme_override_styles/focus = SubResource("StyleBoxFlat_eypyq")
@@ -167,6 +186,7 @@ vertical_alignment = 1
 visible = false
 
 [connection signal="pressed" from="menuContainer/optionsContainer/buttonsContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="menuContainer/optionsContainer/buttonsContainer/HowToPlayButton" to="." method="_on_how_to_play_button_pressed"]
 [connection signal="pressed" from="menuContainer/optionsContainer/buttonsContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="menuContainer/optionsContainer/buttonsContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="menuContainer/optionsContainer/buttonsContainer/ExitButton" to="." method="_on_exit_button_pressed"]

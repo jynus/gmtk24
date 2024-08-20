@@ -9,6 +9,13 @@ const WEB_URL : String = "https://jynus.com"
 func _ready():
 	if Input.get_connected_joypads().size() > 0:
 		done_button.grab_focus()
+	%creditsText.text = "[center][b]" + tr("Design & programming") + "[/b]:\n\n" + \
+						"Jaime Crespo \"jynus\"\n\n" + \
+						"[center][b]" + tr("Music & Sounds") + "[/b]:\n\n" + \
+						"Epidemic Sound\n\n" + \
+						tr("See README for the full attribution list.\n\n") + \
+						tr("* Made with Godot 4 in 4 days for the Game Jam *") + \
+						"[/center]"
 
 func _process(_delta):
 	pass
