@@ -1,6 +1,6 @@
 # Scale It Down!
 
-A GMTK Game Jam 2024 submission about .
+A GMTK Game Jam 2024 submission. The theme was: "Built to Scale". **Play at: https://jynus.itch.io/scale-it-down**
 
 ## Screenshots
 
